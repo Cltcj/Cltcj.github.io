@@ -429,12 +429,37 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E9%9D%A2%E8%AF%95%E5%AE%9D%E5%85%B8/">
+                                <span class="chip bg-color">面试宝典</span>
+                            </a>
+                        
+                            <a href="/tags/C-C/">
+                                <span class="chip bg-color">C/C++</span>
+                            </a>
+                        
+                            <a href="/tags/STL/">
+                                <span class="chip bg-color">STL</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/C-C/" class="post-category">
+                                C/C++
+                            </a>
+                        
+                            <a href="/categories/C-C/STL/" class="post-category">
+                                STL
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -452,7 +477,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    12.8k
                 </div>
                 
 
@@ -469,7 +494,574 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h4 id="1、请说说-STL-的基本组成部分"><a href="#1、请说说-STL-的基本组成部分" class="headerlink" title="1、请说说 STL 的基本组成部分"></a>1、<strong>请说说 STL 的基本组成部分</strong></h4><ul>
+<li>标准模板库（Standard Template Library,简称STL）简单说，就是一些常用数据结构和算法的模板的集合。广义上讲，STL分为3类：<u>Algorithm（算法）、Container（容器）和Iterator（迭代器）</u>，容器和算法通过迭代器可以进行无缝地连接。详细的说，STL由6部分组成：容器(Container)、算法（Algorithm）、 迭代器（Iterator）、仿函数（Function object）、适配器（Adaptor）、空间配制器（Allocator）。</li>
+</ul>
+<p><strong>标准模板库STL主要由6大组成部分：</strong></p>
+<p><strong>容器(Container)</strong></p>
+<ul>
+<li>是一种数据结构， 如list, vector, 和deques，以模板类的方法提供。为了访问容器中的数据，可以使用由容器类输出的迭代器。</li>
+</ul>
+<p><strong>算法（Algorithm）</strong></p>
+<ul>
+<li>是用来操作容器中的数据的模板函数。</li>
+</ul>
+<p><strong>迭代器（Iterator）</strong></p>
+<ul>
+<li>提供了访问容器中对象的方法。</li>
+</ul>
+<p><strong>仿函数（Function object）</strong></p>
+<ul>
+<li>仿函数又称之为函数对象， 其实就是重载了操作符的struct,没有什么特别的地方。</li>
+</ul>
+<p><strong>适配器（Adaptor）</strong></p>
+<ul>
+<li>简单的说就是一种接口类，专门用来修改现有类的接口，提供一中新的接口；或调用现有的函数来实现所需要的功能。主要包括3中适配器Container Adaptor、Iterator Adaptor、Function Adaptor。</li>
+</ul>
+<p><strong>空间配制器（Allocator）</strong></p>
+<ol>
+<li>为STL提供空间配置的系统。其中主要工作包括两部分：<ol>
+<li>对象的创建与销毁；</li>
+<li>内存的获取与释放。</li>
+</ol>
+</li>
+</ol>
+<h4 id="2、请说说-STL-中常见的容器，并介绍一下实现原理"><a href="#2、请说说-STL-中常见的容器，并介绍一下实现原理" class="headerlink" title="2、请说说 STL 中常见的容器，并介绍一下实现原理"></a>2、<strong>请说说 STL 中常见的容器，并介绍一下实现原理</strong></h4><p>容器可以用于存放各种类型的数据（基本类型的变量，对象等）的数据结构，都是模板类，分为顺序容器、关联式容器、容器适配器三种类型，三种类型容器特性分别如下：</p>
+<p>① 顺序容器</p>
+<p>容器并非排序的，元素的插入位置同元素的值无关。包含vector、deque、list，具体实现原理如下：</p>
+<p>（1）vector 头文件</p>
+<p>动态数组。元素在内存连续存放。随机存取任何元素都能在常数时间完成。在尾端增删元素具有较佳的性能。</p>
+<p>（2）deque 头文件</p>
+<p>双向队列。元素在内存连续存放。随机存取任何元素都能在常数时间完成（仅次于vector）。在两端增删元素具有较佳的性能（大部分情况下是常数时间）。</p>
+<p>（3）list 头文件</p>
+<p>双向链表。元素在内存不连续存放。在任何位置增删元素都能在常数时间完成。不支持随机存取。</p>
+<p>② 关联式容器</p>
+<p>元素是排序的；插入任何元素，都按相应的排序规则来确定其位置；在查找时具有非常好的性能；通常以平衡二叉树的方式实现。包含set、multiset、map、multimap，具体实现原理如下：</p>
+<p>（1）set&#x2F;multiset 头文件</p>
+<p>set 即集合。set中不允许相同元素，multiset中允许存在相同元素。</p>
+<p>（2）map&#x2F;multimap 头文件</p>
+<p>map与set的不同在于map中存放的元素有且仅有两个成员变量，一个名为first,另一个名为second, map根据first值对元素从小到大排序，并可快速地根据first来检索元素。</p>
+<p><strong>注意：map和multimap的不同在于是否允许相同first值的元素。</strong></p>
+<p>③ 容器适配器</p>
+<p>封装了一些基本的容器，使之具备了新的函数功能，比如把deque封装一下变为一个具有stack功能的数据结构。这新得到的数据结构就叫适配器。包含stack,queue,priority_queue，具体实现原理如下：</p>
+<p>（1）stack 头文件</p>
+<p>栈是项的有限序列，并满足序列中被删除、检索和修改的项只能是最进插入序列的项（栈顶的项）。后进先出。</p>
+<p>（2）queue 头文件</p>
+<p>队列。插入只可以在尾部进行，删除、检索和修改只允许从头部进行。先进先出。</p>
+<p>（3）priority_queue 头文件</p>
+<p>优先级队列。内部维持某种有序，然后确保优先级最高的元素总是位于头部。最高优先级元素总是第一个出列。</p>
+<h4 id="3、常见容器性质总结？"><a href="#3、常见容器性质总结？" class="headerlink" title="3、常见容器性质总结？"></a>3、<strong>常见容器性质总结？</strong></h4><ol>
+<li>vector 底层数据结构为数组 ，支持快速随机访问</li>
+<li>list 底层数据结构为双向链表，支持快速增删</li>
+<li>deque 底层数据结构为一个中央控制器和多个缓冲区，详细见STL源码剖析P146，支持首尾（中间不能）快速增删，也支持随机访问deque是一个双端队列(double-ended queue)，也是在堆中保存内容的.它的保存形式如下:[堆1] –&gt; [堆2] –&gt;[堆3] –&gt; …每个堆保存好几个元素,然后堆和堆之间有指针指向,看起来像是list和vector的结合品.</li>
+<li>stack 底层一般用list或deque实现，封闭头部即可，不用vector的原因应该是容量大小有限制，扩容耗时</li>
+<li>queue 底层一般用list或deque实现，封闭头部即可，不用vector的原因应该是容量大小有限制，扩容耗时（stack和queue其实是适配器,而不叫容器，因为是对容器的再封装）</li>
+<li>priority_queue 的底层数据结构一般为vector为底层容器，堆heap为处理规则来管理底层容器实现</li>
+<li>set 底层数据结构为红黑树，有序，不重复</li>
+<li>multiset 底层数据结构为红黑树，有序，可重复</li>
+<li>map 底层数据结构为红黑树，有序，不重复</li>
+<li>multimap 底层数据结构为红黑树，有序，可重复</li>
+<li>unordered_set 底层数据结构为hash表，无序，不重复</li>
+<li>unordered_multiset 底层数据结构为hash表，无序，可重复</li>
+<li>unordered_map 底层数据结构为hash表，无序，不重复</li>
+<li>unordered_multimap 底层数据结构为hash表，无序，可重复</li>
+</ol>
+<h4 id="4、STL-容器用过哪些，查找的时间复杂度是多少，为什么"><a href="#4、STL-容器用过哪些，查找的时间复杂度是多少，为什么" class="headerlink" title="4、STL 容器用过哪些，查找的时间复杂度是多少，为什么"></a>4、STL 容器用过哪些，查找的时间复杂度是多少，为什么</h4><p>STL中常用的容器有vector、deque、list、map、set、multimap、multiset、unordered_map、unordered_set等。容器底层实现方式及时间复杂度分别如下：</p>
+<ol>
+<li>vector：采用一维数组实现，元素在内存连续存放，不同操作的时间复杂度为：</li>
+</ol>
+<ul>
+<li>插入: O(N)</li>
+<li>查看: O(1)</li>
+<li>删除: O(N)</li>
+</ul>
+<ol start="2">
+<li>deque：采用双向队列实现，元素在内存连续存放，不同操作的时间复杂度为：</li>
+</ol>
+<ul>
+<li>插入: O(N)</li>
+<li>查看: O(1)删除: O(N)</li>
+</ul>
+<ol start="3">
+<li>list：采用双向链表实现，元素存放在堆中，不同操作的时间复杂度为：</li>
+</ol>
+<ul>
+<li>插入: O(1)</li>
+<li>查看: O(N)</li>
+<li>删除: O(1)</li>
+</ul>
+<ol start="4">
+<li>map、set、multimap、multiset：这四种容器采用红黑树实现，红黑树是平衡二叉树的一种。不同操作的时间复杂度近似为:</li>
+</ol>
+<ul>
+<li>插入: O(logN)</li>
+<li>查看: O(logN)</li>
+<li>删除: O(logN)</li>
+</ul>
+<h4 id="5、说一下STL每种容器对应的迭代器"><a href="#5、说一下STL每种容器对应的迭代器" class="headerlink" title="5、说一下STL每种容器对应的迭代器"></a>5、<strong>说一下STL每种容器对应的迭代器</strong></h4><ul>
+<li>随机访问迭代器：vector、deque</li>
+<li>双向迭代器：list、(multi)set&#x2F;map</li>
+<li>前向迭代器：unordered_(multi)set&#x2F;map、forward_list</li>
+</ul>
+<h4 id="6、STL中vector的实现"><a href="#6、STL中vector的实现" class="headerlink" title="6、STL中vector的实现"></a>6、<strong>STL中vector的实现</strong></h4><ul>
+<li>vector是一种序列式容器，其数据安排以及操作方式与array非常类似，两者的唯一差别就是对于空间运用的灵活性，众所周知，array占用的是静态空间，一旦配置了就不可以改变大小，如果遇到空间不足的情况还要自行创建更大的空间，并手动将数据拷贝到新的空间中，再把原来的空间释放。vector则使用灵活的动态空间配置，维护一块连续的线性空间，在空间不足时，可以自动扩展空间容纳新元素，做到按需供给。其在扩充空间的过程中仍然需要经历：重新配置空间，移动数据，释放原空间等操作。这里需要说明一下动态扩容的规则：以原大小的两倍配置另外一块较大的空间（或者旧长度+新增元素的个数）vector扩容倍数与平台有关，在Win + VS 下是 1.5倍，在 Linux + GCC 下是 2 倍需要注意的是，频繁对vector调用push_back()对性能是有影响的，这是因为每插入一个元素，如果空间够用的话还能直接插入，若空间不够用，则需要重新配置空间，移动数据，释放原空间等操作，对程序性能会造成一定的影响。</li>
+</ul>
+<h4 id="7、简述-vector-的实现原理"><a href="#7、简述-vector-的实现原理" class="headerlink" title="7、简述 vector 的实现原理"></a>7、<strong>简述 vector 的实现原理</strong></h4><p>vector底层实现原理为一维数组（元素在空间连续存放）。</p>
+<ol>
+<li><p>新增元素</p>
+<ul>
+<li>vector通过一个连续的数组存放元素，如果集合已满，在新增数据的时候，就要分配一块更大的内存，将原来的数据复制过来，释放之前的内存，在插入新增的元素。插入新的数据分在最后插入push_back和通过迭代器在任何位置插入，这里说一下通过迭代器插入，通过迭代器与第一个元素的距离知道要插入的位置，即int index&#x3D;iter-begin()。这个元素后面的所有元素都向后移动一个位置，在空出来的位置上存入新增的元素。</li>
+</ul>
+</li>
+<li><p>删除元素</p>
+<ul>
+<li>删除和新增差不多，也分两种，删除最后一个元素pop_back和通过迭代器删除任意一个元素erase(iter)。通过迭代器删除还是先找到要删除元素的位置，即int index&#x3D;iter-begin();这个位置后面的每个元素都想前移动一个元素的位置。同时我们知道erase不释放内存只初始化成默认值。删除全部元素clear：只是循环调用了erase，所以删除全部元素的时候，不释放内存。内存是在析构函数中释放的。</li>
+</ul>
+</li>
+<li><p>迭代器iteraotr</p>
+<ul>
+<li>迭代器iteraotr是STL的一个重要组成部分,通过iterator可以很方便的存储集合中的元素.STL为每个集合都写了一个迭代器, 迭代器其实是对一个指针的包装,实现一些常用的方法,如++,–,!&#x3D;,&#x3D;&#x3D;,*,-&gt;等,通过这些方法可以找到当前元素或是别的元素. vector是STL集合中比较特殊的一个,因为vector中的每个元素都是连续的,所以在自己实现vector的时候可以用指针代替。</li>
+</ul>
+</li>
+</ol>
+<h4 id="8、STL-中vector删除其中的元素，迭代器如何变化？为什么是两倍扩容？释放空间？"><a href="#8、STL-中vector删除其中的元素，迭代器如何变化？为什么是两倍扩容？释放空间？" class="headerlink" title="8、STL 中vector删除其中的元素，迭代器如何变化？为什么是两倍扩容？释放空间？"></a>8、<strong>STL 中vector删除其中的元素，迭代器如何变化？为什么是两倍扩容？释放空间？</strong></h4><ul>
+<li><p>size()函数返回的是已用空间大小，capacity()返回的是总空间大小，capacity()-size()则是剩余的可用空间大小。当size()和capacity()相等，说明vector目前的空间已被用完，如果再添加新元素，则会引起vector空间的动态增长。</p>
+</li>
+<li><p>由于动态增长会引起重新分配内存空间、拷贝原空间、释放原空间，这些过程会降低程序效率。因此，可以使用reserve(n)预先分配一块较大的指定大小的内存空间，这样当指定大小的内存空间未使用完时，是不会重新分配内存空间的，这样便提升了效率。只有当n&gt;capacity()时，调用reserve(n)才会改变vector容量。</p>
+</li>
+<li><p>resize()成员函数改变元素的数目，至于空间的的变化需要看具体情况去分析，如下：</p>
+<ol>
+<li>空的vector对象，size()和capacity()都为0</li>
+<li>当空间大小不足时，新分配的空间大小为原空间大小的2倍。</li>
+<li>使用reserve()预先分配一块内存后，在空间未满的情况下，不会引起重新分配，从而提升了效率。</li>
+<li>当reserve()分配的空间比原空间小时，是不会引起重新分配的。</li>
+<li>resize()函数只改变容器的元素数目，未改变容器大小。</li>
+<li>用reserve(size_type)只是扩大capacity值，这些内存空间可能还是“野”的，如果此时使用“[ ]”来访问，则可能会越界。而resize(size_type new_size)会真正使容器具有new_size个对象。</li>
+</ol>
+</li>
+<li><p>不同的编译器，vector有不同的扩容大小。在vs下是1.5倍，在GCC下是2倍；</p>
+</li>
+<li><p>空间和时间的权衡。简单来说， 空间分配的多，平摊时间复杂度低，但浪费空间也多。</p>
+</li>
+<li><p>使用k&#x3D;2增长因子的问题在于，每次扩展的新尺寸必然刚好大于之前分配的总和，也就是说，之前分配的内存空间不可能被使用。这样对内存不友好，最好把增长因子设为(1, 2)，也就是1-2之间的某个数值。对比可以发现<em><strong>*采用成倍方式扩容，可以保证常数的时间复杂度，而增加指定大小的容量只能达到O(n)的时间复杂度，因此，使用成倍的方式扩容。*</strong></em></p>
+</li>
+</ul>
+<h4 id="9、vector如何释放空间"><a href="#9、vector如何释放空间" class="headerlink" title="9、vector如何释放空间?"></a>9、<strong>vector如何释放空间?</strong></h4><ul>
+<li><p>由于vector的内存占用空间只增不减，比如你首先分配了10,000个字节，然后erase掉后面9,999个，留下一个有效元素，但是内存占用仍为10,000个。所有内存空间是在vector析构时候才能被系统回收。empty()用来检测容器是否为空的，clear()可以清空所有元素。但是即使clear()，vector所占用的内存空间依然如故，无法保证内存的回收。</p>
+</li>
+<li><p>如果需要空间动态缩小，可以考虑使用deque。如果vector，可以用swap()来帮助你释放内存。</p>
+</li>
+</ul>
+<h4 id="10、vector的增加删除都是怎么做的？"><a href="#10、vector的增加删除都是怎么做的？" class="headerlink" title="10、vector的增加删除都是怎么做的？"></a>10、vector的增加删除都是怎么做的？</h4><p>① 新增元素：vector通过一个连续的数组存放元素，如果集合已满，在新增数据的时候，就要分配一块更大的内存，将原来的数据复制过来，释放之前的内存，在插入新增的元素；</p>
+<p>② 对vector的任何操作，一旦引起空间重新配置，指向原vector的所有迭代器就都失效了 ；</p>
+<p>③ 初始时刻vector的capacity为0，塞入第一个元素后capacity增加为1；</p>
+<p>④ 不同的编译器实现的扩容方式不一样，VS2015中以1.5倍扩容，GCC以2倍扩容。</p>
+<p>对比可以发现采用采用成倍方式扩容，可以保证常数的时间复杂度，而增加指定大小的容量只能达到O(n)的时间复杂度，因此，使用成倍的方式扩容</p>
+<h4 id="11、STL中list的实现"><a href="#11、STL中list的实现" class="headerlink" title="11、STL中list的实现"></a>11、<strong>STL中list的实现</strong></h4><ul>
+<li>相比于vector的连续线型空间，list显得复杂许多，但是它的好处在于插入或删除都只作用于一个元素空间，因此list对空间的运用是十分精准的，对任何位置元素的插入和删除都是常数时间。list不能保证节点在存储空间中连续存储，也拥有迭代器，迭代器的“++”、“–”操作对于的是指针的操作，list提供的迭代器类型是双向迭代器：Bidirectional iterators。</li>
+<li>list是一个双向链表。list与vector的另一个区别是，在插入和接合操作之后，都不会造成原迭代器失效，而vector可能因为空间重新配置导致迭代器失效。</li>
+<li>list也是一个环形链表，因此只要一个指针便能完整表现整个链表。list中node节点指针始终指向尾端的一个空白节点，因此是一种“前闭后开”的区间结构</li>
+<li>list的空间管理默认采用alloc作为空间配置器，<strong>为了方便的以节点大小为配置单位，还定义一个list_node_allocator函数可一次性配置多个节点空间。</strong></li>
+</ul>
+<h4 id="11、STL中list的实现-1"><a href="#11、STL中list的实现-1" class="headerlink" title="11、STL中list的实现"></a>11、<strong>STL中list的实现</strong></h4><ul>
+<li>相比于vector的连续线型空间，list显得复杂许多，但是它的好处在于插入或删除都只作用于一个元素空间，因此list对空间的运用是十分精准的，对任何位置元素的插入和删除都是常数时间。list不能保证节点在存储空间中连续存储，也拥有迭代器，迭代器的“++”、“–”操作对于的是指针的操作，list提供的迭代器类型是双向迭代器：Bidirectional iterators。</li>
+</ul>
+<p>list节点的结构见如下源码：</p>
+<p>template <class T></p>
+<p>struct __list_node{</p>
+<p>  typedef void* void_pointer;</p>
+<p>  void_pointer prev;</p>
+<p>  void_pointer next;</p>
+<p>  T data;</p>
+<p>}</p>
+<p>从源码可看出list显然是一个双向链表。list与vector的另一个区别是，在插入和接合操作之后，都不会造成原迭代器失效，而vector可能因为空间重新配置导致迭代器</p>
+<h4 id="12、STL中迭代器失效的情况有哪些？"><a href="#12、STL中迭代器失效的情况有哪些？" class="headerlink" title="12、STL中迭代器失效的情况有哪些？"></a>12、<strong>STL中迭代器失效的情况有哪些？</strong></h4><p><strong>vector：</strong></p>
+<ul>
+<li><p><strong>插入元素：</strong></p>
+<ul>
+<li>1、尾后插入：size &lt; capacity时，首迭代器不失效尾迭代失效（未重新分配空间），size &#x3D;&#x3D; capacity时，所有迭代器均失效（需要重新分配空间）。</li>
+<li>2、中间插入：中间插入：size &lt; capacity时，首迭代器不失效但插入元素之后所有迭代器失效，size &#x3D;&#x3D; capacity时，所有迭代器均失效。</li>
+</ul>
+</li>
+<li><p>删除元素：</p>
+<ul>
+<li>尾后删除：只有尾迭代失效。</li>
+<li>中间删除：删除位置之后所有迭代失效。</li>
+</ul>
+</li>
+</ul>
+<p><strong>deque 和 vector 的情况类似</strong></p>
+<p>而 list 双向链表每一个节点内存不连续, 删除节点仅当前迭代器失效,erase返回下一个有效迭代器;</p>
+<p>map&#x2F;se t等关联容器底层是红黑树删除节点不会影响其他节点的迭代器, 使用递增方法获取下一个迭代器 mmp.erase(iter++);</p>
+<p>unordered_(hash)  迭代器意义不大, rehash 之后, 迭代器应该也是全部失效.</p>
+<h4 id="13、说说-vector-和-list-的区别，分别适用于什么场景？"><a href="#13、说说-vector-和-list-的区别，分别适用于什么场景？" class="headerlink" title="13、说说 vector 和 list 的区别，分别适用于什么场景？"></a>13、<strong>说说 vector</strong> 和 list 的区别，分别适用于什么场景？</h4><p><u>vector和list区别在于底层实现机理不同，因而特性和适用场景也有所不同。</u> </p>
+<p><strong>vector：一维数组</strong></p>
+<ul>
+<li>特点：元素在内存连续存放，动态数组，在堆中分配内存，元素连续存放，有保留内存，如果减少大小后内存也不会释放。 </li>
+<li>优点：和数组类似开辟一段连续的空间，并且支持随机访问，所以它的查找效率高其时间复杂度 O(1)。 </li>
+<li>缺点：由于开辟一段连续的空间，所以插入删除会需要对数据进行移动比较麻烦，时间复杂度 O（n），另外当空间不足时还需要进行扩容。</li>
+</ul>
+<p><strong>list：双向链表</strong> </p>
+<ul>
+<li>特点：元素在堆中存放，每个元素都是存放在一块内存中，它的内存空间可以是不连续的，通过指针来进行数据的访问。 </li>
+<li>优点：底层实现是循环双链表，当对大量数据进行插入删除时，其时间复杂度O(1)。 </li>
+<li>缺点：底层没有连续的空间，只能通过指针来访问，所以查找数据需要遍历其时间复杂度O（n）， 没有提供[]操作符的重载。</li>
+</ul>
+<p><strong>应用场景</strong> </p>
+<ul>
+<li>vector拥有一段连续的内存空间，因此支持随机访问，如果需要高效的随机访问，而不在乎插入和删除的效率，使用vector。 </li>
+<li>list拥有一段不连续的内存空间，如果需要高效的插入和删除，而不关心随机访问，则应使用list。</li>
+</ul>
+<h4 id="14、C-的-vector-和-list中，如果删除末尾的元素，其指针和迭代器如何变化？若删除的是中间的元素呢？"><a href="#14、C-的-vector-和-list中，如果删除末尾的元素，其指针和迭代器如何变化？若删除的是中间的元素呢？" class="headerlink" title="14、C++ 的 vector 和 list中，如果删除末尾的元素，其指针和迭代器如何变化？若删除的是中间的元素呢？"></a>14、<strong>C++ 的 vector 和 list中，如果删除末尾的元素，其指针和迭代器如何变化？若删除的是中间的元素呢？</strong></h4><ol>
+<li><p>迭代器和指针之间的区别</p>
+<ul>
+<li>迭代器不是指针，是类模板，表现的像指针。他只是模拟了指针的一些功能，重载了指针的一些操作符，–&gt;、++、–等。迭代器封装了指针，是一个”可遍历STL（ Standard TemplateLibrary）容器内全部或部分元素”的对象，本质是封装了原生指针，是指针概念的一种提升，提供了比指针更高级的行为，相当于一种智能指针，他可以根据不同类型的数据结构来实现不同的++，–等操作。</li>
+<li>迭代器返回的是对象引用而不是对象的值，所以cout只能输出迭代器使用取值后的值而不能直接输出其自身。</li>
+</ul>
+</li>
+<li><p>vector和list特性</p>
+<ul>
+<li>vector特性 动态数组。元素在内存连续存放。随机存取任何元素都在常数时间完成。在尾端增删元素具有较大的性能（大部分情况下是常数时间）。</li>
+<li>list特性 双向链表。元素在内存不连续存放。在任何位置增删元素都能在常数时间完成。不支持随机存取。</li>
+</ul>
+</li>
+<li><p>vector增删元素</p>
+<ul>
+<li>对于vector而言，删除某个元素以后，该元素后边的每个元素的迭代器都会失效，后边每个元素都往前移动一位，erase返回下一个有效的迭代器。</li>
+</ul>
+</li>
+<li><p>list增删元素</p>
+<ul>
+<li>对于list而言，删除某个元素，只有“指向被删除元素”的那个迭代器失效，其它迭代器不受任何影响。</li>
+</ul>
+</li>
+</ol>
+<h4 id="15、STL-中-vector-与-list-具体是怎么实现的？常见操作的时间复杂度是多少？"><a href="#15、STL-中-vector-与-list-具体是怎么实现的？常见操作的时间复杂度是多少？" class="headerlink" title="15、STL 中 vector 与 list 具体是怎么实现的？常见操作的时间复杂度是多少？"></a>15、<strong>STL</strong> <strong>中</strong> <strong>vector</strong> <strong>与 list 具体是怎么实现的？常见操作的时间复杂度是多少？</strong></h4><ol>
+<li><p>vector （元素在内存连续存放）</p>
+<ul>
+<li>vector是动态数组，在堆中分配内存，元素连续存放，有保留内存，如果减少大小后，内存也不会释放；如果新增大小当前大小时才会重新分配内存。</li>
+</ul>
+</li>
+<li><p>list 双向链表（元素存放在堆中）</p>
+<ul>
+<li>元素存放在堆中，每个元素都是放在一块内存中，它的内存空间可以是不连续的，通过指针来进行数据的访问，这个特点，使得它的**随机存取变得非常没有效率*<em><strong>，因此它没有提供[ ]操作符的重载。但是由于链表的特点，</strong>它可以很有效的支持任意地方的删除和插入操作。</em>*</li>
+<li>*特点：**a. 随机访问不方便 b. 删除插入操作方便</li>
+</ul>
+</li>
+<li><p>常见时间复杂度</p>
+<ul>
+<li>vector插入、查找、删除时间复杂度分别为：O(n)、O(1)、O(n)； </li>
+<li>list插入、查找、删除时间复杂度分别为：O(1)、O(n)O(1)。</li>
+</ul>
+</li>
+</ol>
+<h4 id="16、简述-STL-中的-map-的实现原理"><a href="#16、简述-STL-中的-map-的实现原理" class="headerlink" title="16、简述 STL 中的 map 的实现原理"></a>16、<strong>简述 STL 中的 map 的实现原理</strong></h4><ul>
+<li><p>map是关联式容器，map 的所有元素都是 pair，同时拥有实值（value）和键值（key）。pair 的第一元素被视为键值，第二元素被视为实值。所有元素都会根据元素的键值自动被排序。不允许键值重复。</p>
+</li>
+<li><p>map内部实现了一个红黑树（红黑树是非严格平衡的二叉搜索树，而AVL是严格平衡二叉搜索树），红黑树有自动排序的功能，因此map内部所有元素都是有序的，红黑树的每一个节点都代表着map的一个元素。因此，对于map进行的查找、删除、添加等一系列的操作都相当于是对红黑树进行的操作。map中的元素是按照二叉树（又名二叉查找树、二叉排序树）存储的，特点就是左子树上所有节点的键值都小于根节点的键值，右子树所有节点的键值都大于根节点的键值。使用中序遍历可将键值按照从小到大遍历出来。map的特性是所有元素会根据键值进行自动排序。map中所有的元素都是pair，拥有键值(key)和实值(value)两个部分，并且不允许元素有相同的key。</p>
+</li>
+<li><p><u>一旦map的key确定了，那么是无法修改的，但是可以修改这个key对应的value</u>。</p>
+</li>
+<li><p>map的在构造时缺省采用递增排序key，也使用alloc配置器配置空间大小，需要注意的是在插入元素时，调用的是红黑树中的insert_unique()方法，而非insert_euqal()（multimap使用）</p>
+</li>
+<li><p><strong>map的特性如下</strong></p>
+<ol>
+<li>map以RBTree作为底层容器；</li>
+<li>所有元素都是键+值存在；</li>
+<li>不允许键重复所有元素是通过键进行自动排序的；</li>
+<li>map的键是不能修改的，但是其键对应的值是可以修改的。</li>
+</ol>
+</li>
+<li><p><strong>红黑树的特性：</strong></p>
+<ul>
+<li>每个节点不是红色就是黑色</li>
+<li>根结点为黑色</li>
+<li>如果节点为红色，其子节点必为黑</li>
+<li><strong>任一节点至（NULL）树尾端的任何路径，所含的黑节点数量必相同</strong></li>
+</ul>
+</li>
+</ul>
+<h4 id="17、STL中set的实现？"><a href="#17、STL中set的实现？" class="headerlink" title="17、STL中set的实现？"></a>17、<strong>STL中set的实现？</strong></h4><ul>
+<li>STL中的容器可分为序列式容器（sequence）和关联式容器（associative），set属于关联式容器。</li>
+<li>set的特性是，所有元素都会根据元素的值自动被排序（默认升序），set元素的键值就是实值，实值就是键值，set不允许有两个相同的键值。</li>
+<li>set不允许迭代器修改元素的值，其迭代器是一种constance iterators。</li>
+<li>标准的STL set以RB-tree（红黑树）作为底层机制，几乎所有的set操作行为都是转调用RB-tree的操作行为。</li>
+</ul>
+<h4 id="18、请你来说一下-map-和-set-有什么区别，分别又是怎么实现的？"><a href="#18、请你来说一下-map-和-set-有什么区别，分别又是怎么实现的？" class="headerlink" title="18、请你来说一下 map 和 set 有什么区别，分别又是怎么实现的？"></a>18、<strong>请你来说一下 map 和 set 有什么区别，分别又是怎么实现的？</strong></h4><ol>
+<li>set是一种关联式容器，其特性如下：<ul>
+<li>set以RBTree作为底层容器</li>
+<li>所得元素的只有key没有value，value就是key </li>
+<li>不允许出现键值重复</li>
+<li>所有的元素都会被自动排序</li>
+<li>不能通过迭代器来改变set的值，因为set的值就是键，set的迭代器是const的</li>
+</ul>
+</li>
+<li>map和set一样是关联式容器，其特性如下：<ol>
+<li>map以RBTree作为底层容器</li>
+<li>所有元素都是键+值存在</li>
+<li>不允许键重复</li>
+<li>所有元素是通过键进行自动排序的</li>
+<li>map的键是不能修改的，但是其键对应的值是可以修改的</li>
+</ol>
+</li>
+</ol>
+<h4 id="19、STL中的deque的实现"><a href="#19、STL中的deque的实现" class="headerlink" title="19、STL中的deque的实现"></a>19、<strong>STL中的deque的实现</strong></h4><ul>
+<li>vector是单向开口（尾部）的连续线性空间，deque则是一种双向开口的连续线性空间，虽然vector也可以在头尾进行元素操作，但是其头部操作的效率十分低下（主要是涉及到整体的移动）</li>
+</ul>
+<p><img src="https://img2020.cnblogs.com/blog/1657559/202107/1657559-20210728211357818-746549817.png" alt="img"></p>
+<ul>
+<li>deque和vector的最大差异一个是deque运行在常数时间内对头端进行元素操作，二是deque没有容量的概念，它是动态地以分段连续空间组合而成，可以随时增加一段新的空间并链接起来。</li>
+<li>deque虽然也提供随机访问的迭代器，但是其迭代器并不是普通的指针，其复杂程度比vector高很多，因此除非必要，否则一般使用vector而非deque。如果需要对deque排序，可以先将deque中的元素复制到vector中，利用sort对vector排序，再将结果复制回deque</li>
+<li>deque由一段一段的定量连续空间组成，一旦需要增加新的空间，只要配置一段定量连续空间拼接在头部或尾部即可，因此deque的最大任务是如何维护这个整体的连续性</li>
+<li>deque的数据结构如下：</li>
+</ul>
+<p><img src="https://img2020.cnblogs.com/blog/1657559/202107/1657559-20210728212220991-1931832786.png" alt="img"></p>
+<ul>
+<li>从deque的迭代器数据结构可以看出，为了保持与容器联结，迭代器主要包含上述4个元素</li>
+<li>deque迭代器的“++”、“–”操作是远比vector迭代器繁琐，其主要工作在于缓冲区边界，如何从当前缓冲 区跳到另一个缓冲区，当然deque内部在插入元素时，如果map中node数量全部使用完，且node指向的缓 冲区也没有多余的空间，这时会配置新的map（2倍于当前+2的数量）来容纳更多的node，也就是可以指 向更多的缓冲区。在deque删除元素时，也提供了元素的析构和空闲缓冲区空间的释放等机制。</li>
+</ul>
+<h4 id="20、STL中hashtable的实现？"><a href="#20、STL中hashtable的实现？" class="headerlink" title="20、STL中hashtable的实现？"></a>20、<strong>STL中</strong>hashtable的实现？</h4><ul>
+<li>STL中的hashtable，使用vector作为底层容器来构建一个bucket(桶)的聚合体，每一个桶维护一个链表来存储元素。能够设计一个哈希函数，使得每一个元素的关键字与一个值一一对应。</li>
+<li>hashtable中的bucket所维护的list既不是list也不是slist，而是其自己定义的由hashtable_node数据结构组成的linked-list，而bucket聚合体本身使用vector进行存储。hashtable的迭代器只提供前进操作，不提供后退操作</li>
+<li>在hashtable设计bucket的数量上，其内置了28个质数[53, 97, 193,…,429496729]，在创建hashtable时，会根据存入的元素个数选择大于等于元素个数的质数作为hashtable的容量（vector的长度），其中每个bucket所维护的linked-list长度也等于hashtable的容量。如果插入hashtable的元素个数超过了bucket的容量，就要进行重建table操作，即找出下一个质数，创建新的buckets vector，重新计算元素在新hashtable的位置。</li>
+</ul>
+<h4 id="21、STL中stack和queue的实现"><a href="#21、STL中stack和queue的实现" class="headerlink" title="21、STL中stack和queue的实现"></a>21、<strong>STL中stack和queue的实现</strong></h4><p><strong>stack</strong></p>
+<ul>
+<li>stack（栈）是一种先进后出（First In Last Out）的数据结构，只有一个入口和出口，那就是栈顶，除了获取栈顶元素外，没有其他方法可以获取到内部的其他元素，其结构图如下：</li>
+</ul>
+<p><img src="file:///C:\Users\ASUS\AppData\Local\Temp\ksohtml8644\wps8.jpg" alt="img"> </p>
+<ul>
+<li><p>stack这种单向开口的数据结构很容易由双向开口的deque和list形成，只需要根据stack的性质对应移除某些接口即可实现。</p>
+</li>
+<li><p>stack除了默认使用deque作为其底层容器之外，也可以使用双向开口的list，只需要在初始化stack时，将list作为第二个参数即可。由于stack只能操作顶端的元素，因此其内部元素无法被访问，也不提供迭代器。</p>
+</li>
+</ul>
+<p><strong>queue</strong></p>
+<ul>
+<li>queue（队列）是一种先进先出（First In First Out）的数据结构，只有一个入口和一个出口，分别位于最底端和最顶端，出口元素外，没有其他方法可以获取到内部的其他元素，其结构图如下：</li>
+</ul>
+<p><img src="file:///C:\Users\ASUS\AppData\Local\Temp\ksohtml8644\wps9.jpg" alt="img"> </p>
+<ul>
+<li>类似的，queue这种“先进先出”的数据结构很容易由双向开口的deque和list形成，只需要根据queue的性质对应移除某些接口即可实现，同样，queue也可以使用list作为底层容器，不具有遍历功能，没有迭代器。</li>
+</ul>
+<h4 id="22、说说-STL-中-map-hashtable-deque-list-的实现原理"><a href="#22、说说-STL-中-map-hashtable-deque-list-的实现原理" class="headerlink" title="22、说说 STL 中 map hashtable deque list 的实现原理"></a>22、<strong>说说 STL</strong> <strong>中 map</strong> <strong>hashtable deque list 的实现原理</strong></h4><p>map、hashtable、deque、list实现机理分别为红黑树、函数映射、双向队列、双向链表，他们的特性分别如下：</p>
+<ol>
+<li><p><strong>map实现原理</strong></p>
+<ul>
+<li>map内部实现了一个红黑树（红黑树是非严格平衡的二叉搜索树，而AVL是严格平衡二叉搜索树），红黑树有自动排序的功能，因此map内部所有元素都是有序的，红黑树的每一个节点都代表着map的一个元素。因此，对于map进行的查找、删除、添加等一系列的操作都相当于是对红黑树进行的操作。map中的元素是按照二叉树（又名二叉查找树、二叉排序树）存储的，特点就是左子树上所有节点的键值都小于根节点的键值，右子树所有节点的键值都大于根节点的键值。使用中序遍历可将键值按照从小到大遍历出来。</li>
+</ul>
+</li>
+<li><p><strong>hashtable（也称散列表，直译作哈希表）实现原理</strong></p>
+<ul>
+<li>hashtable采用了函数映射的思想记录的存储位置与记录的关键字关联起来，从而能够很快速地进行查找。这决定了哈希表特殊的数据结构，它同数组、链表以及二叉排序树等相比较有很明显的区别，它能够快速定位到想要查找的记录，而不是与表中存在的记录的关键字进行比较来进行查找。</li>
+</ul>
+</li>
+<li><p><strong>deque实现原理</strong></p>
+<ul>
+<li>deque内部实现的是一个双向队列。元素在内存连续存放。随机存取任何元素都在常数时间完成（仅次于vector）。所有适用于vector的操作都适用于deque。在两端增删元素具有较佳的性能（大部分情况下是常数时间）。</li>
+</ul>
+</li>
+<li><p><strong>list实现原理</strong></p>
+<ul>
+<li>list内部实现的是一个双向链表。元素在内存不连续存放。在任何位置增删元素都能在常数时间完成。不支持随机存取。无成员函数，给定一个下标i，访问第i个元素的内容，只能从头部挨个遍历到第i个元素。</li>
+</ul>
+</li>
+</ol>
+<h4 id="23、STL中的priority-queue的实现"><a href="#23、STL中的priority-queue的实现" class="headerlink" title="23、STL中的priority_queue的实现"></a>23、<strong>STL中的priority_queue的实现</strong></h4><ul>
+<li>priority_queue，优先队列，是一个拥有权值观念的queue，它跟queue一样是顶部入口，底部出口，在插入元素时，元素并非按照插入次序排列，它会自动根据权值（通常是元素的实值）排列，权值最高，排在最前面，如下图所示。</li>
+</ul>
+<p>​	<img src="file:///C:\Users\ASUS\AppData\Local\Temp\ksohtml8644\wps10.jpg" alt="img"> </p>
+<ul>
+<li>默认情况下，priority_queue使用一个max-heap完成，底层容器使用的是一般为vector为底层容器，堆heap为处理规则来管理底层容器实现 。priority_queue的这种实现机制导致其不被归为容器，而是一种容器配接器。</li>
+<li>priority_queue的所有元素，进出都有一定的规则，只有queue顶端的元素（权值最高者），才有机会被外界取用，它没有遍历功能，也不提供迭代器</li>
+</ul>
+<h4 id="24、map插入方式？"><a href="#24、map插入方式？" class="headerlink" title="24、map插入方式？"></a>24、<strong>map</strong>插入方式？</h4><p>① 用insert函数插入pair数据</p>
+<p><code>mapStudent.insert(pair&lt;int, string&gt;(1, &quot;student_one&quot;));</code> </p>
+<p>② 用insert函数插入value_type数据</p>
+<p><code>mapStudent.insert(map&lt;int, string&gt;::value_type (1, &quot;student_one&quot;));</code></p>
+<p>③ 在insert函数中使用make_pair()函数</p>
+<p><code>mapStudent.insert(make_pair(1, &quot;student_one&quot;));</code> </p>
+<p>④ 用数组方式插入数据</p>
+<p><code>mapStudent[1] = &quot;student_one&quot;;</code> </p>
+<h4 id="25、STL中unordered-map-hash-map-和map的区别，hash-map如何解决冲突以及扩容"><a href="#25、STL中unordered-map-hash-map-和map的区别，hash-map如何解决冲突以及扩容" class="headerlink" title="25、STL中unordered**_map(hash_map)和map的区别，hash_map如何解决冲突以及扩容 **"></a>25、<strong>STL中</strong>unordered**_map(hash_map)和map的区别，hash_map如何解决冲突以及扩容 **</h4><ol>
+<li>unordered_map和map类似，都是存储的key-value的值，可以通过key快速索引到value。不同的是unordered_map不会根据key的大小进行排序。</li>
+<li>存储时是根据key的hash值判断元素是否相同，即unordered_map内部元素是无序的，而map中的元素是按照二叉搜索树存储，进行中序遍历会得到有序遍历。</li>
+<li>所以使用时map的key需要定义operator&lt;。而unordered_map需要定义hash_value函数并且重载operator&#x3D;&#x3D;。但是很多系统内置的数据类型都自带这些。</li>
+<li>那么如果是自定义类型，那么就需要自己重载operator&lt;或者hash_value()了。</li>
+<li>如果需要内部元素自动排序，使用map，不需要排序使用unordered_map</li>
+<li>unordered_map的底层实现是hash_table;</li>
+<li>hash_map底层使用的是hash_table，而hash_table使用的开链法进行冲突避免，所有hash_map采用开链法进行冲突解决。</li>
+<li><strong>什么时候扩容：</strong>当向容器添加元素的时候，会判断当前容器的元素个数，如果大于等于阈值—即当前数组的长度乘以加载因子的值的时候，就要自动扩容。</li>
+<li>**扩容(resize)**就是重新计算容量，向HashMap对象里不停的添加元素，而HashMap对象内部的数组无法装载更多的元素时，对象就需要扩大数组的长度，以便能装入更多的元素。</li>
+</ol>
+<h4 id="26、STL中unordered-map和map的区别和应用场景"><a href="#26、STL中unordered-map和map的区别和应用场景" class="headerlink" title="26、STL中unordered_map和map的区别和应用场景"></a>26、<strong>STL中unordered_map和map的区别和应用场景</strong></h4><ul>
+<li>map支持键值的自动排序，底层机制是红黑树，红黑树的查询和维护时间复杂度均为O(log(n))，但是空间占用比较大，因为每个节点要保持父节点、孩子节点及颜色的信息。</li>
+<li>Unordered_map是C++11新添加的容器，底层机制是哈希表，通过hash函数计算元素位置，其查询时间复杂度O(1)，维护时间和bucket桶所维护的list长度有关，但是建立hash表耗时大。</li>
+<li>从两者底层实现来看，map适用于有序数据的应用场景，unordered_map适用于高效查询的应用场。</li>
+</ul>
+<h4 id="27、说说-map-和-unordered-map-的区别？底层实现"><a href="#27、说说-map-和-unordered-map-的区别？底层实现" class="headerlink" title="27、说说 map 和 unordered_map 的区别？底层实现"></a>27、说说 map 和 unordered_map 的区别？底层实现</h4><ul>
+<li>map和unordered_map的区别在于他们的实现基理不同。</li>
+</ul>
+<ol>
+<li><p>map实现机理</p>
+<ul>
+<li>map内部实现了一个红黑树（红黑树是非严格平衡的二叉搜索树，而AVL是严格平衡二叉搜索树），红黑树有自动排序的功能，因此map内部所有元素都是有序的，红黑树的每一个节点都代表着map的一个元素。因此，对于map进行的查找、删除、添加等一系列的操作都相当于是对红黑树进行的操作。map中的元素是按照二叉树（又名二叉查找树、二叉排序树）存储的，特点就是左子树上所有节点的键值都小于根节点的键值，右子树所有节点的键值都大于根节点的键值。使用中序遍历可将键值按照从小到大遍历出来。</li>
+</ul>
+</li>
+<li><p>unordered_map实现机理</p>
+<ul>
+<li>unordered_map内部实现了一个哈希表（也叫散列表），通过把关键码值映射到Hash表中一个位置来访问记录，查找时间复杂度可达O（1），其中在海量数据处理中有着广泛应用。因此，元素的排列顺序是无序的。</li>
+</ul>
+</li>
+</ol>
+<h4 id="28、vector越界访问下标，map越界访问下标？vector删除元素时会不会释放空间？"><a href="#28、vector越界访问下标，map越界访问下标？vector删除元素时会不会释放空间？" class="headerlink" title="28、vector越界访问下标，map越界访问下标？vector删除元素时会不会释放空间？"></a>28、<strong>vector越界</strong>访问<strong>下标，map越界访问下标？vector删除元素时会不会释放空间？</strong></h4><ul>
+<li><p>① 通过下标访问vector中的元素时会做边界检查，但该处的实现方式要看具体IDE，不同IDE的实现方式不一样，确保不可访问越界地址。</p>
+</li>
+<li><p>② map的下标运算符[]的作用是：将key作为下标去执行查找，并返回相应的值；如果不存在这个key，就将一个具有该key和value的某值插入这个map。</p>
+</li>
+<li><p>③ erase()函数，只能删除内容，不能改变容量大小;</p>
+</li>
+<li><p>④ erase成员函数，它删除了itVect迭代器指向的元素，并且返回要被删除的itVect之后的迭代器，迭代器相当于一个智能指针;</p>
+</li>
+<li><p>⑤ clear()函数，只能清空内容，不能改变容量大小;如果要想在删除内容的同时释放内存，那么你可以选择deque容器。</p>
+</li>
+</ul>
+<h4 id="29、map中-与find的区别？"><a href="#29、map中-与find的区别？" class="headerlink" title="29、map中[]与find的区别？"></a>29、<strong>map中[]与find的区别？</strong></h4><ul>
+<li>map的下标运算符[]的作用是：将关键码作为下标去执行查找，并返回对应的值；如果不存在这个关键码，就将一个具有该关键码和值类型的默认值的项插入这个map。</li>
+<li>map的find函数：用关键码执行查找，找到了返回该位置的迭代器；如果不存在这个关键码，就返回尾迭代器。</li>
+</ul>
+<h4 id="30、STL中list与queue之间的区别"><a href="#30、STL中list与queue之间的区别" class="headerlink" title="30、STL中list与queue之间的区别"></a>30、<strong>STL中list与queue之间的区别</strong></h4><ul>
+<li>① list不再能够像vector一样以普通指针作为迭代器，因为其节点不保证在存储空间中连续存在；</li>
+<li>②list插入操作和接合操作都不会造成原有的list迭代器失效;</li>
+<li>③ list不仅是一个双向链表，而且还是一个环状双向链表，所以它只需要一个指针；</li>
+<li>④ list不像vector那样有可能在空间不足时做重新配置、数据移动的操作，所以插入前的所有迭代器在插入操作之后都仍然有效；</li>
+<li>⑤ deque是一种双向开口的连续线性空间，所谓双向开口，意思是可以在头尾两端分别做元素的插入和删除操作；</li>
+<li>⑥ deque和vector最大的差异，一在于deque允许常数时间内对起头端进行元素的插入或移除操作，二在于deque没有所谓容量概念，因为它是动态地以分段连续空间组合而成，随时可以增加一段新的空间并链接起来，deque没有所谓的空间保留功能。</li>
+</ul>
+<h4 id="31、set和map的区别，multimap和multiset区别"><a href="#31、set和map的区别，multimap和multiset区别" class="headerlink" title="31、set和map的区别，multimap和multiset区别"></a>31、<strong>set和map的区别，multimap和multiset区别</strong></h4><ul>
+<li>set只提供一种数据类型的接口，但是它会将这一个元素分配到key和value上，而且它的compare_function用的是identity函数，这个函数是输入什么就输出什么，这样就实现了set机制，set的key和value是一样的，它保存的是两份数据，而不是一份数据</li>
+<li>map提供了两种数据类型的接口，分别分配到key和value上，它的compare_function采用的是红黑树的compare_function，它保存的是两份数据</li>
+<li>它们两个的insert都是红黑树的insert_unique()独一无二的插入</li>
+<li>multimap和map唯一的区别就是：multimap调用的是insert_equal()可以重复插入，map调用的是独一无二的插入，set和multiset也一样，只是再插入的时候调用的方法不一样，底层实现都一样。</li>
+</ul>
+<h4 id="32、hashtable中解决冲突的方法？"><a href="#32、hashtable中解决冲突的方法？" class="headerlink" title="32、hashtable中解决冲突的方法？"></a>32、<strong>hashtable中解决冲突的方法？</strong></h4><p><strong>开链法</strong>：每个桶维护一条list，如果哈希函数计算出的桶相同，则按顺序存在这个list中。</p>
+<p><strong>再散列</strong>：发生冲突时使用另一种哈希函数再计算一个地址，直到不冲突</p>
+<p><strong>线性探测</strong>：使用哈希函数计算出的位置如果已经由元素占用了，则向后依次寻找，找到表尾则回到表头，直到找到一个空位。</p>
+<p><strong>二次探测</strong>：使用hash函数计算出的位置如果已经有元素占用了，按照1^2、2^2、3^2…的步长依次寻找，如果步长是随机数序列，则称之为伪随机探测</p>
+<p><strong>公共溢出区</strong>：一旦hash函数计算的结果相同，就放入公共溢出区</p>
+<h4 id="33、容器内部删除一个元素"><a href="#33、容器内部删除一个元素" class="headerlink" title="33、容器内部删除一个元素"></a>33、<strong>容器内部删除一个元素</strong></h4><ul>
+<li>① 顺序容器（序列式容器，比如vector、deque）<ul>
+<li>erase迭代器不仅使所指向被删除的迭代器失效，而且使被删元素之后的所有迭代器失效(list除外)，所以不能使用erase(it++)的方式，但是erase的返回值是下一个有效迭代器；</li>
+</ul>
+</li>
+<li>② 关联容器(关联式容器，比如map、set、multimap、multiset等)<ul>
+<li>erase迭代器只是被删除元素的迭代器失效，但是返回值是void，所以要采用erase(it++)的方式删除迭代器；</li>
+</ul>
+</li>
+</ul>
+<h4 id="34、STL中hash-map扩容发生什么？"><a href="#34、STL中hash-map扩容发生什么？" class="headerlink" title="34、STL中hash_map扩容发生什么？"></a>34、STL中hash_map扩容发生什么？</h4><ol>
+<li>hash table表格内的元素称为桶（bucket),而由桶所链接的元素称为节点（node),其中存入桶元素的容器为stl本身很重要的一种序列式容器——vector容器。之所以选择vector为存放桶元素的基础容器，主要是因为vector容器本身具有动态扩容能力，无需人工干预。</li>
+<li>向前操作：首先尝试从目前所指的节点出发，前进一个位置（节点），由于节点被安置于list内，所以利用节点的next指针即可轻易完成前进操作，如果目前正巧是list的尾端，就跳至下一个bucket身上，那正是指向下一个list的头部节点。</li>
+</ol>
+<h4 id="35、STL迭代器讲一下"><a href="#35、STL迭代器讲一下" class="headerlink" title="35、STL迭代器讲一下"></a>35、<strong>STL迭代器讲一下</strong></h4><ol>
+<li>Iterator（迭代器）模式又称游标（Cursor）模式，用于提供一种方法顺序访问一个聚合对象中各个元素, 而又不需暴露该对象的内部表示。 或者这样说可能更容易理解：Iterator模式是运用于聚合对象的一种模式，通过运用该模式，使得我们可以在不知道对象内部表示的情况下，按照一定顺序（由iterator提供的方法）访问聚合对象中的各个元素。 由于Iterator模式的以上特性：与聚合对象耦合，在一定程度上限制了它的广泛运用，一般仅用于底层聚合支持类，如STL的list、vector、stack等容器类及ostream_iterator等扩展Iterator。</li>
+<li>迭代器是一种抽象的设计理念，通过迭代器可以在不了解容器内部原理的情况下遍历容器，除此之外，STL中迭代器一个最重要的作用就是作为容器与STL算法的粘合剂。</li>
+<li>迭代器的作用就是提供一个遍历容器内部所有元素的接口，因此迭代器内部必须保存一个与容器相关联的指针，然后重载各种运算操作来遍历，其中最重要的是*运算符与-&gt;运算符，以及++、–等可能需要重载的运算符重载。这和C++中的智能指针很像，智能指针也是将一个指针封装，然后通过引用计数或是其他方法完成自动释放内存的功能。</li>
+<li>最常用的迭代器的相应型别有五种：value type、difference type、pointer、reference、iterator catagoly;</li>
+</ol>
+<h4 id="36、迭代器用过吗？什么时候会失效？"><a href="#36、迭代器用过吗？什么时候会失效？" class="headerlink" title="36、迭代器用过吗？什么时候会失效？"></a>36、<strong>迭代器用过吗？什么时候会失效？</strong></h4><p>用过，常用容器迭代器失效情形如下:</p>
+<ol>
+<li><p>对于序列容器vector，deque来说，使用erase后，后边的每个元素的迭代器都会失效，后边每个元素都往前移动一位，erase返回下一个有效的迭代器。</p>
+</li>
+<li><p>对于关联容器map，set来说，使用了erase后，当前元素的迭代器失效，但是其结构是红黑树，删除当前元素，不会影响下一个元素的迭代器，所以在调用erase之前，记录下一个元素的迭代器即可。</p>
+</li>
+<li><p>对于list来说，它使用了不连续分配的内存，并且它的erase方法也会返回下一个有效的迭代器，因此上面两种方法都可以使用。</p>
+</li>
+</ol>
+<h4 id="37、说一下STL中迭代器的作用，有指针为何还要迭代器？"><a href="#37、说一下STL中迭代器的作用，有指针为何还要迭代器？" class="headerlink" title="37、说一下STL中迭代器的作用，有指针为何还要迭代器？"></a>37、<strong>说一下STL中迭代器的作用，有指针为何还要迭代器？</strong></h4><ol>
+<li><p>迭代器的作用</p>
+<ul>
+<li>用于指向顺序容器和关联容器中的元素</li>
+<li>通过迭代器可以读取它指向的元素</li>
+<li>通过非const迭代器还可以修改其指向的元素</li>
+</ul>
+</li>
+<li><p>迭代器和指针的区别</p>
+<ul>
+<li>迭代器不是指针，是类模板，表现的像指针。他只是模拟了指针的一些功能，重载了指针的一些操作符，–&gt;、++、–等。迭代器封装了指针，是一个”可遍历STL（ Standard TemplateLibrary）容器内全部或部分元素”的对象，本质是封装了原生指针，是指针概念的一种提升，提供了比指针更高级的行为，相当于一种智能指针，他可以根据不同类型的数据结构来实现不同的++，–等操作。迭代器返回的是对象引用而不是对象的值，所以cout只能输出迭代器使用取值后的值而不能直接输出其自身。</li>
+</ul>
+</li>
+<li><p>迭代器产生的原因</p>
+<ul>
+<li>Iterator类的访问方式就是把不同集合类的访问逻辑抽象出来，使得不用暴露集合内部的结构而达到循环遍历集合的效果。</li>
+</ul>
+</li>
+</ol>
+<h4 id="38、说说-STL-迭代器是怎么删除元素的"><a href="#38、说说-STL-迭代器是怎么删除元素的" class="headerlink" title="38、说说 STL 迭代器是怎么删除元素的"></a>38、<strong>说说 STL 迭代器是怎么删除元素的</strong></h4><ol>
+<li><p>对于序列容器vector，deque来说，使用erase后，后边的每个元素的迭代器都会失效，后边每个元素都往前移动一位，erase返回下一个有效的迭代器；</p>
+</li>
+<li><p>对于关联容器map，set来说，使用了erase后，当前元素的迭代器失效，但是其结构是红黑树，删除当前元素，不会影响下一个元素的迭代器，所以在调用erase之前，记录下一个元素的迭代器即可；</p>
+</li>
+<li><p>对于list来说，它使用了不连续分配的内存，并且它的erase方法也会返回下一个有效的迭代器，因此上面两种方法都可以使用。</p>
+</li>
+</ol>
+<h4 id="39、说说-push-back-和-emplace-back-的区别"><a href="#39、说说-push-back-和-emplace-back-的区别" class="headerlink" title="39、说说 push_back 和 emplace_back 的区别"></a>39、<strong>说说 push_back 和 emplace_back 的区别</strong></h4><ul>
+<li>如果要将一个临时变量push到容器的末尾，push_back()需要先构造临时对象，再将这个对象拷贝到容器的末尾，而emplace_back()则直接在容器的末尾构造对象，这样就省去了拷贝的过程。</li>
+</ul>
+<h4 id="40、说说-STL-容器动态链接可能产生的问题？"><a href="#40、说说-STL-容器动态链接可能产生的问题？" class="headerlink" title="40、说说 STL 容器动态链接可能产生的问题？"></a>40、<strong>说说 STL 容器动态链接可能产生的问题？</strong></h4><ol>
+<li><p>可能产生的问题</p>
+<ul>
+<li>容器是一种动态分配内存空间的一个变量集合类型变量。在一般的程序函数里，局部容器，参数传递容器，参数传递容器的引用，参数传递容器指针都是可以正常运行的，而在动态链接库函数内部使用容器也是没有问题的，但是给动态库函数传递容器的对象本身，则会出现内存堆栈破坏的问题。</li>
+</ul>
+</li>
+<li><p>产生问题的原因</p>
+<ul>
+<li>容器和动态链接库相互支持不够好，动态链接库函数中使用容器时，参数中只能传递容器的引用，并且要保证容器的大小不能超出初始大小，否则导致容器自动重新分配，就会出现内存堆栈破坏问题。</li>
+</ul>
+</li>
+</ol>
+<h4 id="41、说说-STL-中-resize-和-reserve-的区别"><a href="#41、说说-STL-中-resize-和-reserve-的区别" class="headerlink" title="41、说说 STL 中 resize 和 reserve 的区别"></a>41、<strong>说说 STL 中 resize 和 reserve 的区别</strong></h4><ol>
+<li><p>首先必须弄清楚两个概念：</p>
+<ul>
+<li>capacity：该值在容器初始化时赋值，指的是容器能够容纳的最大的元素的个数。还不能通过下标等访问，因为此时容器中还没有创建任何对象。</li>
+<li>size：指的是此时容器中实际的元素个数。可以通过下标访问0-(size-1)范围内的对象。</li>
+</ul>
+</li>
+<li><p>resize和reserve区别主要有以下几点：</p>
+<ul>
+<li>resize既分配了空间，也创建了对象；reserve表示容器预留空间，但并不是真正的创建对象，需要通过insert（）或push_back（）等创建对象。</li>
+<li>resize既修改capacity大小，也修改size大小；reserve只修改capacity大小，不修改size大小。</li>
+<li>两者的形参个数不一样。 resize带两个参数，一个表示容器大小，一个表示初始值（默认为0）；reserve只带一个参数，表示容器预留的大小。</li>
+</ul>
+</li>
+</ol>
+<p><strong>问题延伸：</strong></p>
+<ul>
+<li>resize 和 reserve 既有差别，也有共同点。两个接口的共同点是它们都保证了vector的空间大小(capacity)最少达到它的参数所指定的大小。下面就他们的细节进行分析。</li>
+<li>为实现resize的语义，resize接口做了两个保证：<ul>
+<li>保证区间[0, new_size)范围内数据有效，如果下标index在此区间内，vector[indext]是合法的；</li>
+<li>保证区间[0, new_size)范围以外数据无效，如果下标index在区间外，vector[indext]是非法的。</li>
+</ul>
+</li>
+<li>reserve只是保证vector的空间大小(capacity)最少达到它的参数所指定的大小n。在区间[0, n)范围内，如果下标是index，vector[index]这种访问有可能是合法的，也有可能是非法的，视具体情况而定。</li>
+</ul>
+<h4 id="42、简单说一下traits技法"><a href="#42、简单说一下traits技法" class="headerlink" title="42、简单说一下traits技法"></a>42、<strong>简单说一下traits技法</strong></h4><p>traits技法利用“内嵌型别“的编程技巧与编译器的template参数推导功能，增强C++未能提供的关于型别认证方面的能力。常用的有iterator_traits和type_traits。</p>
+<p><strong>iterator_traits</strong>：被称为特性萃取机，能够方便的让外界获取以下5种型别：</p>
+<ul>
+<li>value_type：迭代器所指对象的型别</li>
+<li>difference_type：两个迭代器之间的距离</li>
+<li>pointer：迭代器所指向的型别</li>
+<li>reference：迭代器所引用的型别</li>
+<li>iterator_category：一共有5种分别为：<ol>
+<li>input_iterator：istream独有的迭代器。</li>
+<li>output_iterator：ostream独有的迭代器。</li>
+<li>forward_iterator：继承自input_iterator，单向走的迭代器，只能走一个，不能跳。如forward_list、单向list的hashtable</li>
+<li>bidirectional_iterator：继承自forward_iterator，双向走的迭代器，只能走一个，不能跳。如list、rb-tree、双向list的hashtable</li>
+<li>random_access_iterator：继承自bidirectional_iterator，可以跳的迭代器。如array、vector、deque。</li>
+</ol>
+</li>
+</ul>
+
                 
             </div>
             <hr/>
@@ -532,7 +1124,19 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/%E9%9D%A2%E8%AF%95%E5%AE%9D%E5%85%B8/">
+                                    <span class="chip bg-color">面试宝典</span>
+                                </a>
+                            
+                                <a href="/tags/C-C/">
+                                    <span class="chip bg-color">C/C++</span>
+                                </a>
+                            
+                                <a href="/tags/STL/">
+                                    <span class="chip bg-color">STL</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -746,18 +1350,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/09/03/stl-mian-shi-chang-kao/">
+                <a href="/2022/09/04/docker-jie-shao-ji-an-zhuang/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="STL 面试常考">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="Docker介绍及安装">
                         
-                        <span class="card-title">STL 面试常考</span>
+                        <span class="card-title">Docker介绍及安装</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -767,18 +1370,29 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-09-03
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-09-04
+                        </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            无敌最俊朗
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Docker/" class="post-category">
+                                    Docker
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Docker%E7%9F%A5%E8%AF%86/">
+                        <span class="chip bg-color">Docker知识</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -1041,9 +1655,9 @@
         <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
                    server="netease"
                    type="playlist"
-                   id="503838841"
+                   id="7582775059"
                    fixed='true'
-                   autoplay='false'
+                   autoplay='true'
                    theme='#42b983'
                    loop='all'
                    order='random'
