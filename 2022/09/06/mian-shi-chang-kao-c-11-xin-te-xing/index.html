@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Docker容器及使用, 博客小站">
+    <meta name="keywords" content="面试常考——C++11 新特性, 博客小站">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Docker容器及使用 | 博客小站</title>
+    <title>面试常考——C++11 新特性 | 博客小站</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Docker容器及使用</h1>
+                    <h1 class="description center-align post-title">面试常考——C++11 新特性</h1>
                 </div>
             </div>
         </div>
@@ -429,12 +429,37 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E9%9D%A2%E8%AF%95%E5%AE%9D%E5%85%B8/">
+                                <span class="chip bg-color">面试宝典</span>
+                            </a>
+                        
+                            <a href="/tags/C-C/">
+                                <span class="chip bg-color">C/C++</span>
+                            </a>
+                        
+                            <a href="/tags/STL/">
+                                <span class="chip bg-color">STL</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/C-C/" class="post-category">
+                                C/C++
+                            </a>
+                        
+                            <a href="/categories/C-C/STL/" class="post-category">
+                                STL
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -443,7 +468,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-09-05
+                    2022-09-06
                 </div>
                 
 
@@ -452,7 +477,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.9k
+                    5.8k
                 </div>
                 
 
@@ -469,199 +494,156 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="Docker-容器使用"><a href="#Docker-容器使用" class="headerlink" title="Docker 容器使用"></a>Docker 容器使用</h3><hr>
-<h4 id="Docker-客户端"><a href="#Docker-客户端" class="headerlink" title="Docker 客户端"></a>Docker 客户端</h4><p>docker 客户端非常简单 ,我们可以直接输入 docker 命令来查看到 Docker 客户端的所有命令选项。</p>
-<pre class=" language-line-numbers language-shell"><code class="language-line-numbers language-shell">clt@clt-virtual-machine:~$ docker
-</code></pre>
-<p><img src="/2022/09/05/docker-rong-qi-ji-shi-yong/image-20220905171048227.png" alt="image-20220905171048227"></p>
-<p>可以通过命令 <strong>docker command –help</strong> 更深入的了解指定的 Docker 命令使用方法。</p>
-<p>例如我们要查看 <strong>docker stats</strong> 指令的具体使用方法：</p>
-<pre class=" language-line-numbers language-shell"><code class="language-line-numbers language-shell">clt@clt-virtual-machine:~# docker stats --help
-</code></pre>
-<p><img src="/2022/09/05/docker-rong-qi-ji-shi-yong/image-20220905171157824.png" alt="image-20220905171157824"></p>
-<p><img src="/2022/09/05/docker-rong-qi-ji-shi-yong/image-20220905170853523.png" alt="image-20220905170853523"></p>
-<h3 id="容器使用"><a href="#容器使用" class="headerlink" title="容器使用"></a>容器使用</h3><h4 id="获取镜像"><a href="#获取镜像" class="headerlink" title="获取镜像"></a>获取镜像</h4><p>如果我们本地没有 ubuntu 镜像，我们可以使用 docker pull 命令来载入 ubuntu 镜像：</p>
-<pre class=" language-line-numbers language-shell"><code class="language-line-numbers language-shell">$ docker pull ubuntu
-</code></pre>
-<p>有的人可能会出现下面问题：</p>
-<p><img src="/2022/09/05/docker-rong-qi-ji-shi-yong/image-20220905171438666.png" alt="image-20220905171438666"></p>
-<p>这是你没有给非root用户权限运行docker，具体参考<a href="https://cltcj.github.io/2022/09/04/docker-jie-shao-ji-an-zhuang/">Docker介绍及安装</a></p>
-<p>当然你也可以直接使用root进行操作：</p>
-<pre class=" language-line-numbers language-shell"><code class="language-line-numbers language-shell">$ sudo docker pull ubuntu
-</code></pre>
-<h4 id="启动容器"><a href="#启动容器" class="headerlink" title="启动容器"></a>启动容器</h4><p>以下命令使用 ubuntu 镜像启动一个容器，参数为以命令行模式进入该容器：</p>
-<pre class=" language-line-numbers language-shell"><code class="language-line-numbers language-shell">$ docker run -it ubuntu /bin/bash
-</code></pre>
-<p>参数说明：</p>
-<ul>
-<li><strong>-i</strong>: 交互式操作。</li>
-<li><strong>-t</strong>: 终端。</li>
-<li><strong>ubuntu</strong>: ubuntu 镜像。</li>
-<li><strong>&#x2F;bin&#x2F;bash</strong>：放在镜像名后的是命令，这里我们希望有个交互式 Shell，因此用的是 &#x2F;bin&#x2F;bash。</li>
+                <h4 id="1、C-11有哪些新特性？"><a href="#1、C-11有哪些新特性？" class="headerlink" title="1、C++11有哪些新特性？"></a>1、C++11有哪些新特性？</h4><p>C++新特性主要包括包含语法改进和标准库扩充两个方面，主要包括以下11点：</p>
+<p>一、语法的改进</p>
+<ol>
+<li>统一的初始化方法———使用初始化列表进行初始化（适用性被增加，现可以用于任何类型对象的初始化）</li>
+<li>成员变量默认初始化</li>
+<li>auto 关键字 用于定义变量，编译器可以自动判断的类型（前提：定义一个变量时对其进行初始化）</li>
+<li>decltype 求表达式的类型</li>
+<li>智能指针 shared_ptr</li>
+<li>空指针 nullptr（原来NULL）</li>
+<li>基于范围的 for 循环</li>
+<li>右值引用和 move 语义 让程序员有意识减少进行深拷贝操作</li>
+</ol>
+<p>二、标准库扩充</p>
+<ol>
+<li>无序容器（哈希表） 用法和功能同 map 一模一样，区别在于哈希表的效率更高</li>
+<li>正则表达式 可以认为正则表达式实质上是一个字符串，该字符串描述了一种特定模式的字符串</li>
+<li>Lambda 表达式</li>
+</ol>
+<h4 id="2、说一说你了解的关于lambda函数的全部知识"><a href="#2、说一说你了解的关于lambda函数的全部知识" class="headerlink" title="2、说一说你了解的关于lambda函数的全部知识"></a>2、说一说你了解的关于lambda函数的全部知识</h4><ul>
+<li>① <strong>利用lambda表达式可以编写内嵌的匿名函数，用以替换独立函数或者函数对象；</strong></li>
+<li>② <strong>每当你定义一个lambda表达式后，编译器会自动生成一个匿名类（这个类当然重载了()运算符），我们称为闭包类型（closure type）。</strong>那么在运行时，这个lambda表达式就会返回一个匿名的闭包实例，其实一个右值。所以，我们上面的lambda表达式的结果就是一个个闭包。闭包的一个强大之处是其可以通过传值或者引用的方式捕捉其封装作用域内的变量，前面的方括号就是用来定义捕捉模式以及变量，我们又将其称为lambda捕捉块。</li>
+<li>③ lambda表达式的语法定义如下：<code>[capture] (parameters) mutable -&gt;return-type &#123;statement&#125;;</code></li>
+<li>④ 与普通函数不同，lambda必须使用尾置返回来指定返回类型</li>
+<li>⑤ 我们可以忽略参数列表和返回类型，但必须永远包含捕获列表和函数体</li>
 </ul>
-<p>要退出终端，直接输入 <strong>exit</strong>:</p>
-<p>要退出终端，直接输入 <strong>exit</strong>:</p>
-<pre class=" language-line-numbers language-shell"><code class="language-line-numbers language-shell">root@88867067c9dc:/# exit
-</code></pre>
-<h4 id="启动已止运行的容器"><a href="#启动已止运行的容器" class="headerlink" title="启动已止运行的容器"></a>启动已止运行的容器</h4><p>查看所有的容器命令如下：</p>
-<pre class=" language-line-numbers language-shell"><code class="language-line-numbers language-shell">$ docker ps -a
-</code></pre>
-<p>使用 docker start 启动一个已停止的容器：</p>
-<pre class=" language-line-numbers language-shell"><code class="language-line-numbers language-shell">$ sudo docker start 88867067c9dc
-</code></pre>
-<p><img src="/2022/09/05/docker-rong-qi-ji-shi-yong/image-20220905175424186.png" alt="image-20220905175424186"></p>
-<h4 id="后台运行"><a href="#后台运行" class="headerlink" title="后台运行"></a>后台运行</h4><p>在大部分的场景下，我们希望 docker 的服务是在后台运行的，我们可以过 <strong>-d</strong> 指定容器的运行模式。</p>
-<pre class=" language-line-numbers language-shell"><code class="language-line-numbers language-shell">$ docker run -itd --name ubuntu-test ubuntu /bin/bash
-</code></pre>
-<p><strong>注：</strong>加了 <strong>-d</strong> 参数默认不会进入容器，想要进入容器需要使用指令 <strong>docker exec</strong>（下面会介绍到）。</p>
-<h4 id="停止一个容器"><a href="#停止一个容器" class="headerlink" title="停止一个容器"></a>停止一个容器</h4><p>停止容器的命令如下：</p>
-<pre class=" language-line-numbers language-shell"><code class="language-line-numbers language-shell">$ docker stop <容器 ID>
-</code></pre>
-<p>停止的容器可以通过 docker restart 重启：</p>
-<pre><code>$ docker restart &lt;容器 ID&gt;
-</code></pre>
-<h4 id="进入容器"><a href="#进入容器" class="headerlink" title="进入容器"></a>进入容器</h4><p>在使用 <strong>-d</strong> 参数时，容器启动后会进入后台。此时想要进入容器，可以通过以下指令进入：</p>
+<h4 id="3、C-中NULL和nullptr区别"><a href="#3、C-中NULL和nullptr区别" class="headerlink" title="3、C++中NULL和nullptr区别"></a>3、<strong>C++中NULL和nullptr区别</strong></h4><p><strong>在C++中指针必须有明确的类型定义。但是将NULL定义为0带来的另一个问题是无法与整数的0区分。</strong></p>
+<p>由于在<strong>传入NULL参数时，会把NULL当做整数0来看，如果我们想调用参数是指针的函数</strong>，该怎么办呢?nullptr在C++11被引入用于解决这一问题，<strong>nullptr可以明确区分整型和指针类型</strong>，<strong>能够根据环境自动转换成相应的指针类型</strong>，但不会被转换为任何整型，所以不会造成参数传递错误。</p>
+<h4 id="4、auto、decltype和decltype-auto-的用法"><a href="#4、auto、decltype和decltype-auto-的用法" class="headerlink" title="4、auto、decltype和decltype(auto)的用法"></a>4、auto、decltype和decltype(auto)的用法</h4><p>1）auto </p>
+<p><strong>auto用于定义变量，编译器可以自动判断变量的类型。auto 让编译器通过初始值来进行类型推演</strong>。从而获得定义变量的类型，所以说 auto 定义的变量必须有初始值。</p>
+<p><strong>auto和 const 的结合使用</strong></p>
+<p>a. 当类型不为引用时，auto 的推导结果将不保留表达式的 const 属性；</p>
+<p>b. 当类型为引用时，auto 的推导结果将保留表达式的 const 属性。</p>
+<p>使用auto定义迭代器比较方便</p>
+<p>2）decltype</p>
+<p>有的时候我们还会遇到这种情况，我们希望从表达式中推断出要定义变量的类型，但却不想用表达式的值去初始化变量。还有可能是<strong>函数的返回类型为某表达式的值类型</strong>。在这些时候auto显得就无力了，所以C++11又引入了第二种类型说明符<strong>decltype，它的作用是选择并返回操作数的数据类型。</strong>在此过程中，编译器只是分析表达式并得到它的类型，却不进行实际的计算表达式的值。</p>
+<p>3）decltype(auto)</p>
+<p>decltype(auto)是C++14新增的类型指示符，<strong>可以用来声明变量以及指示函数返回类型</strong>。在使用时，会将“&#x3D;”号左边的表达式替换掉auto，再根据decltype的语法规则来确定类型。</p>
+<h4 id="5、说说-C-中智能指针和指针的区别是什么？"><a href="#5、说说-C-中智能指针和指针的区别是什么？" class="headerlink" title="5、说说 C++ 中智能指针和指针的区别是什么？"></a>5、<strong>说说 C++ 中智能指针和指针的区别是什么？</strong></h4><p>智能指针和普通指针的区别在于智能指针实际上是对普通指针加了一层封装机制，区别是它负责自动释放所指的对象，这样的一层封装机制的目的是为了使得智能指针可以方便的管理一个对象的生命期。</p>
+<h4 id="6、说说C-中的智能指针有哪些？分别解决的问题以及区别？"><a href="#6、说说C-中的智能指针有哪些？分别解决的问题以及区别？" class="headerlink" title="6、说说C++中的智能指针有哪些？分别解决的问题以及区别？"></a>6、说说C++中的智能指针有哪些？分别解决的问题以及区别？</h4><ol>
+<li><p>C++中的智能指针有4种，分别为：shared_ptr、unique_ptr、weak_ptr、auto_ptr，其中，auto_ptr被C++11弃用。</p>
+</li>
+<li><p>使用智能指针的原因</p>
+</li>
+</ol>
 <ul>
-<li><strong>docker attach</strong></li>
-<li><strong>docker exec</strong>：推荐大家使用 docker exec 命令，因为此命令会退出容器终端，但不会导致容器的停止。</li>
+<li>申请的空间（即new出来的空间），在使用结束时，需要delete掉，否则会形成内存碎片。在程序运行期间，new出来的对象，在析构函数中delete掉，但是这种方法不能解决所有问题，因为有时候new发生在某个全局函数里面，该方法会给程序员造成精神负担。此时，智能指针就派上了用场。使用智能指针可以很大程度上避免这个问题，因为智能指针就是一个类，当超出了类的作用域时，类会自动调用析构函数，析构函数会自动释放资源。所以，智能指针的作用原理就是在函数结束时自动释放内存空间，避免了手动释放内存空间。</li>
 </ul>
-<p><strong>attach 命令</strong></p>
-<p>下面演示了使用 docker attach 命令。</p>
-<pre class=" language-line-numbers language-shell"><code class="language-line-numbers language-shell">$ sudo docker attach 88867067c9dc
-</code></pre>
-<p><img src="/2022/09/05/docker-rong-qi-ji-shi-yong/image-20220905175635760.png" alt="image-20220905175635760"></p>
-<p><strong>注意：</strong> 如果从这个容器退出，会导致容器的停止。</p>
-<p><strong>exec 命令</strong></p>
-<p>下面演示了使用 docker exec 命令。</p>
-<pre class=" language-line-numbers language-shell"><code class="language-line-numbers language-shell">docker exec -it 88867067c9dc /bin/bash
-</code></pre>
-<p><strong>注意：</strong> 如果从这个容器退出，容器不会停止，这就是为什么推荐大家使用 <strong>docker exec</strong> 的原因。</p>
-<p>更多参数说明请使用 <strong>docker exec –help</strong> 命令查看。</p>
-<h4 id="导出和导入容器"><a href="#导出和导入容器" class="headerlink" title="导出和导入容器"></a>导出和导入容器</h4><p><strong>导出容器</strong></p>
-<p>如果要导出本地某个容器，可以使用 <strong>docker export</strong> 命令。</p>
-<pre class=" language-line-numbers language-shell"><code class="language-line-numbers language-shell">$ docker export 88867067c9dc > ubuntu.tar
-</code></pre>
-<p>导出容器 88867067c9dc 快照到本地文件 ubuntu.tar。</p>
-<p>这样将导出容器快照到本地文件。</p>
-<h4 id="导入容器快照"><a href="#导入容器快照" class="headerlink" title="导入容器快照"></a><strong>导入容器快照</strong></h4><p>可以使用 docker import 从容器快照文件中再导入为镜像，以下实例将快照文件 ubuntu.tar 导入到镜像 test&#x2F;ubuntu:v1:</p>
-<pre class=" language-line-numbers language-shell"><code class="language-line-numbers language-shell">$ cat docker/ubuntu.tar | docker import - test/ubuntu:v1
-</code></pre>
-<p>此外，也可以通过指定 URL 或者某个目录来导入，例如：</p>
-<pre class=" language-line-numbers language-shell"><code class="language-line-numbers language-shell">$ docker import http://example.com/exampleimage.tgz example/imagerepo
-</code></pre>
-<h4 id="删除容器"><a href="#删除容器" class="headerlink" title="删除容器"></a>删除容器</h4><p>删除容器使用 <strong>docker rm</strong> 命令：</p>
-<pre class=" language-line-numbers language-shell"><code class="language-line-numbers language-shell">$ docker rm -f 88867067c9dc
-</code></pre>
-<p>下面的命令可以清理掉所有处于终止状态的容器。</p>
-<pre class=" language-line-numbers language-shell"><code class="language-line-numbers language-shell">$ docker container prune
-</code></pre>
-<h3 id="web容器"><a href="#web容器" class="headerlink" title="web容器"></a>web容器</h3><h4 id="运行一个-web-应用"><a href="#运行一个-web-应用" class="headerlink" title="运行一个 web 应用"></a>运行一个 web 应用</h4><p>前面我们运行的容器并没有一些什么特别的用处。</p>
-<p>接下来让我们尝试使用 docker 构建一个 web 应用程序。</p>
-<p>我们将在docker容器中运行一个 Python Flask 应用来运行一个web应用。</p>
-<pre class=" language-line-numbers language-shell"><code class="language-line-numbers language-shell">clt@clt-virtual-machine:~$ docker pull training/webapp # 载入镜像
-clt@clt-virtual-machine:~$ docker run -d -P training/webapp python app.py
-</code></pre>
-<p><img src="/2022/09/05/docker-rong-qi-ji-shi-yong/image-20220906105844272.png" alt="image-20220906105844272"></p>
-<p>参数说明:</p>
+<ol start="3">
+<li>四种指针分别解决的问题以及各自特性如下：</li>
+</ol>
+<p>（1）auto_ptr（C++98的方案，C++11已经弃用）</p>
 <ul>
-<li>**-d:**让容器在后台运行。</li>
-<li>**-P:**将容器内部使用的网络端口随机映射到我们使用的主机上。</li>
+<li>采用所有权模式。</li>
 </ul>
-<hr>
-<h4 id="查看-WEB-应用容器"><a href="#查看-WEB-应用容器" class="headerlink" title="查看 WEB 应用容器"></a>查看 WEB 应用容器</h4><p>使用 docker ps 来查看我们正在运行的容器：</p>
-<pre class=" language-line-numbers language-shell"><code class="language-line-numbers language-shell">clt@clt-virtual-machine:~$ docker ps
-CONTAINER ID   IMAGE             COMMAND           CREATED         STATUS         PORTS                                         NAMES
-9a31ee6f1f19   training/webapp   "python app.py"   5 minutes ago   Up 4 minutes   0.0.0.0:49153->5000/tcp, :::49153->5000/tcp   affectionate_edison
-c781f5452024   ubuntu:15.10      "/bin/bash"       5 minutes ago   Up 5 minutes                                                 compassionate_kirch
-</code></pre>
-<p>这里多了端口信息。</p>
-<pre><code>PORTS
-0.0.0.0:49153-&gt;5000/tcp
-</code></pre>
-<p>Docker 开放了 5000 端口（默认 Python Flask 端口）映射到主机端口 49153上。</p>
-<p>这时我们可以通过浏览器访问WEB应用</p>
-<p><img src="/2022/09/05/docker-rong-qi-ji-shi-yong/image-20220906113005395.png" alt="image-20220906113005395"></p>
-<p>我们也可以通过 -p 参数来设置不一样的端口：</p>
-<pre class=" language-line-numbers language-shell"><code class="language-line-numbers language-shell">clt@clt-virtual-machine:~$ docker run -d -p 5000:5000 training/webapp python app.py
-</code></pre>
-<p><strong>docker ps</strong>查看正在运行的容器</p>
-<pre class=" language-line-numbers language-shell"><code class="language-line-numbers language-shell">clt@clt-virtual-machine:~$ docker ps
-CONTAINER ID   IMAGE             COMMAND           CREATED              STATUS              PORTS                                         NAMES
-a9f76eee97ee   training/webapp   "python app.py"   About a minute ago   Up About a minute   0.0.0.0:5000->5000/tcp, :::5000->5000/tcp     quizzical_kirch
-9a31ee6f1f19   training/webapp   "python app.py"   35 minutes ago       Up 34 minutes       0.0.0.0:49153->5000/tcp, :::49153->5000/tcp   affectionate_edison
-c781f5452024   ubuntu:15.10      "/bin/bash"       35 minutes ago       Up 35 minutes                                                     compassionate_kirch
-</code></pre>
-<p>容器内部的 5000 端口映射到我们本地主机的 5000 端口上。</p>
-<h4 id="网络端口的快捷方式"><a href="#网络端口的快捷方式" class="headerlink" title="网络端口的快捷方式"></a>网络端口的快捷方式</h4><p>通过 <strong>docker ps</strong> 命令可以查看到容器的端口映射，<strong>docker</strong> 还提供了另一个快捷方式 <strong>docker port</strong>，使用 <strong>docker port</strong> 可以查看指定 （ID 或者名字）容器的某个确定端口映射到宿主机的端口号。</p>
-<p>上面我们创建的 web 应用容器 ID 为 <strong>a9f76eee97ee</strong> 名字为 <strong>quizzical_kirch</strong>。</p>
-<p>我可以使用 <strong>docker port a9f76eee97ee</strong> 或 <strong>docker port quizzical_kirch</strong> 来查看容器端口的映射情况。</p>
-<pre class=" language-line-numbers language-shell"><code class="language-line-numbers language-shell">clt@clt-virtual-machine:~$ docker port a9f76eee97ee
-5000/tcp -> 0.0.0.0:5000
-5000/tcp -> :::5000
-clt@clt-virtual-machine:~$ docker port quizzical_kirch
-5000/tcp -> 0.0.0.0:5000
-5000/tcp -> :::5000
-</code></pre>
-<h4 id="查看-WEB-应用程序日志"><a href="#查看-WEB-应用程序日志" class="headerlink" title="查看 WEB 应用程序日志"></a>查看 WEB 应用程序日志</h4><p>docker logs [ID或者名字] 可以查看容器内部的标准输出。</p>
-<pre class=" language-line-numbers language-shell"><code class="language-line-numbers language-shell">clt@clt-virtual-machine:~$ docker logs -f a9f76eee97ee
- * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
-172.17.0.1 - - [06/Sep/2022 03:38:40] "GET / HTTP/1.1" 200 -
-172.17.0.1 - - [06/Sep/2022 03:38:40] "GET /favicon.ico HTTP/1.1" 404 -
-</code></pre>
-<p><strong>-f:</strong> 让 <strong>docker logs</strong> 像使用 <strong>tail -f</strong> 一样来输出容器内部的标准输出。</p>
-<p>从上面，我们可以看到应用程序使用的是 5000 端口并且能够查看到应用程序的访问日志。</p>
-<h4 id="查看WEB应用程序容器的进程"><a href="#查看WEB应用程序容器的进程" class="headerlink" title="查看WEB应用程序容器的进程"></a>查看WEB应用程序容器的进程</h4><p>我们还可以使用 docker top 来查看容器内部运行的进程</p>
-<pre class=" language-line-numbers language-shell"><code class="language-line-numbers language-shell">clt@clt-virtual-machine:~$ docker top quizzical_kirch
-UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
-root                6059                6037                0                   11:31               ?                   00:00:01            python app.py
-</code></pre>
-<hr>
-<h4 id="检查-WEB-应用程序"><a href="#检查-WEB-应用程序" class="headerlink" title="检查 WEB 应用程序"></a>检查 WEB 应用程序</h4><p>使用 <strong>docker inspect</strong> 来查看 Docker 的底层信息。它会返回一个 JSON 文件记录着 Docker 容器的配置和状态信息。</p>
-<pre class=" language-line-numbers language-shell"><code class="language-line-numbers language-shell">clt@clt-virtual-machine:~$ docker inspect quizzical_kirch
-[
-    &#123;
-        "Id": "a9f76eee97ee32e2c6144720f28bc3eee949e0e0ad1caa34d98f0cbb7b83d2ff",
-        "Created": "2022-09-06T03:31:13.836472995Z",
-        "Path": "python",
-        "Args": [
-            "app.py"
-        ],
-        "State": &#123;
-            "Status": "running",
-            "Running": true,
-            "Paused": false,
-            "Restarting": false,
-            "OOMKilled": false,
-            "Dead": false,
-            "Pid": 6059,
-            "ExitCode": 0,
-            "Error": "",
-            "StartedAt": "2022-09-06T03:31:22.336312232Z",
-            "FinishedAt": "0001-01-01T00:00:00Z"
-        &#125;,
-...
-</code></pre>
-<h4 id="停止-WEB-应用容器"><a href="#停止-WEB-应用容器" class="headerlink" title="停止 WEB 应用容器"></a>停止 WEB 应用容器</h4><pre class=" language-line-numbers language-shell"><code class="language-line-numbers language-shell">clt@clt-virtual-machine:~$ docker stop quizzical_kirch  
-quizzical_kirch
-</code></pre>
-<h4 id="重启WEB应用容器"><a href="#重启WEB应用容器" class="headerlink" title="重启WEB应用容器"></a>重启WEB应用容器</h4><p>已经停止的容器，我们可以使用命令 docker start 来启动。</p>
-<pre class=" language-line-numbers language-shell"><code class="language-line-numbers language-shell">clt@clt-virtual-machine:~$ docker start quizzical_kirch
-quizzical_kirch
-</code></pre>
-<p>docker ps -l 查询最后一次创建的容器：</p>
-<pre class=" language-line-numbers language-shell"><code class="language-line-numbers language-shell">clt@clt-virtual-machine:~$ docker ps -l 
-CONTAINER ID   IMAGE             COMMAND           CREATED          STATUS          PORTS                                       NAMES
-a9f76eee97ee   training/webapp   "python app.py"   10 minutes ago   Up 10 minutes   0.0.0.0:5000->5000/tcp, :::5000->5000/tcp   quizzical_kirch
-</code></pre>
-<p>正在运行的容器，我们可以使用 <strong>docker restart</strong> 命令来重启。</p>
-<h4 id="移除WEB应用容器"><a href="#移除WEB应用容器" class="headerlink" title="移除WEB应用容器"></a>移除WEB应用容器</h4><p>我们可以使用 docker rm 命令来删除不需要的容器</p>
-<pre class=" language-line-numbers language-shell"><code class="language-line-numbers language-shell">clt@clt-virtual-machine:~$ docker rm quizzical_kirch    
-quizzical_kirch
-</code></pre>
-<p>删除容器时，容器必须是停止状态，否则会报如下错误</p>
-<pre class=" language-line-numbers language-shell"><code class="language-line-numbers language-shell">clt@clt-virtual-machine:~$ docker rm quizzical_kirch  
-Error response from daemon: You cannot remove a running container a9f76eee97ee32e2c6144720f28bc3eee949e0e0ad1caa34d98f0cbb7b83d2ff. Stop the container before attempting removal or force remove
-</code></pre>
+<p>（2）unique_ptr（替换auto_ptr）</p>
+<ul>
+<li>unique_ptr实现独占式拥有或严格拥有概念，<strong>保证同一时间内只有一个智能指针可以指向该对象</strong>。它对于避免资源泄露，例如，以new创建对象后因为发生异常而忘记调用delete时的情形特别有用。</li>
+</ul>
+<p>（3）shared_ptr（非常好使）</p>
+<ul>
+<li>shared_ptr实现共享式拥有概念。<strong>多个智能指针可以指向相同对象</strong>，该对象和其相关资源会在“最后一个引用被销毁”时候释放。从名字share就可以看出了资源可以被多个指针共享，它使用计数机制来表明资源被几个指针共享。可以通过成员函数use_count()来查看资源的所有者个数。除了可以通过new来构造，还可以通过传入auto_ptr, unique_ptr,weak_ptr来构造。当我们调用release()时，当前指针会释放资源所有权，计数减一。当计数等于0时，资源会被释放。shared_ptr 是为了解决 auto_ptr 在对象所有权上的局限性(auto_ptr 是独占的), 在使用引用计数的机制上提供了可以共享所有权的智能指针。</li>
+</ul>
+<p>（4）weak_ptr</p>
+<ul>
+<li>weak_ptr 是一种不控制对象生命周期的智能指针, 它指向一个 shared_ptr 管理的对象。进行该对象的内存管理的是那个强引用的 shared_ptr。weak_ptr只是提供了对管理对象的一个访问手段。weak_ptr 设计的目的是为配合 shared_ptr 而引入的一种智能指针来协助 shared_ptr 工作，它只可以从一个 shared_ptr 或另一个 weak_ptr 对象构造, 它的构造和析构不会引起引用计数的增加或减少。<strong>weak_ptr是用来解决shared_ptr相互引用时的死锁问题</strong>，<strong>如果说两个shared_ptr相互引用，那么这两个指针的引用计数永远不可能下降为0,资源永远不会释放。</strong>它是对对象的一种弱引用，不会增加对象的引用计数，和shared_ptr之间可以相互转化。shared_ptr可以直接赋值给它，它可以通过调用lock函数来获得shared_ptr。</li>
+</ul>
+<h4 id="7、使用智能指针管理内存资源，RAII是怎么回事？"><a href="#7、使用智能指针管理内存资源，RAII是怎么回事？" class="headerlink" title="7、使用智能指针管理内存资源，RAII是怎么回事？"></a>7、<strong>使用智能指针管理内存资源，RAII是怎么回事？</strong></h4><p>① RAII全称是“Resource Acquisition is Initialization”，直译过来是“资源获取即初始化”，也就是说在构造函数中申请分配资源，在析构函数中释放资源。</p>
+<p>因为C++的语言机制保证了，当一个对象创建的时候，自动调用构造函数，当对象超出作用域的时候会自动调用析构函数。所以，在RAII的指导下，我们应该使用类来管理资源，将资源和对象的生命周期绑定。</p>
+<p>② 智能指针（std::shared_ptr和std::unique_ptr）即RAII最具代表的实现，使用智能指针，可以实现自动的内存管理，再也不需要担心忘记delete造成的内存泄漏。</p>
+<p>毫不夸张的来讲，有了智能指针，代码中几乎不需要再出现delete了。</p>
+<h4 id="8、智能指针的作用"><a href="#8、智能指针的作用" class="headerlink" title="8、智能指针的作用"></a>8、<strong>智能指针的作用</strong></h4><p>C++11中引入了智能指针的概念，方便管理堆内存。使用普通指针，容易造成堆内存泄露（忘记释放），二次释放，程序发生异常时内存泄露等问题等，使用智能指针能更好的管理堆内存。</p>
+<p><strong>初始化。智能指针是个模板类，可以指定类型，传入指针通过构造函数初始化</strong>。也可以使用make_shared函数初始化。<strong>不能将指针直接赋值给一个智能指针，一个是类，一个是指针。</strong>例如std::shared_ptr<int> p4 &#x3D; new int(1);的写法是错误的</int></p>
+<p><strong>拷贝和赋值。拷贝使得对象的引用计数增加1，赋值使得原对象引用计数减1</strong>，当计数为0时，自动释放内存。后来指向的对象引用计数加1，指向后来的对象</p>
+<p><strong>unique_ptr“唯一”拥有其所指对象，同一时刻只能有一个unique_ptr指向给定对象（通过禁止拷贝语义、只有移动语义来实现）</strong>。相比与原始指针unique_ptr用于其RAII的特性，使得在出现异常的情况下，动态资源能得到释放。unique_ptr指针本身的生命周期：从unique_ptr指针创建时开始，直到离开作用域。离开作用域时，若其指向对象，则将其所指对象销毁(默认使用delete操作符，用户可指定其他操作)。unique_ptr指针与其所指对象的关系：在智能指针生命周期内，可以改变智能指针所指对象，如创建智能指针时通过构造函数指定、通过reset方法重新指定、通过release方法释放所有权、通过移动语义转移所有权。</p>
+<p>weak_ptr 是一种不控制对象生命周期的智能指针, 它指向一个 shared_ptr 管理的对象. 进行该对象的内存管理的是那个强引用的 shared_ptr. weak_ptr只是提供了对管理对象的一个访问手段。weak_ptr 设计的目的是为配合 shared_ptr 而引入的一种智能指针来协助 shared_ptr 工作, <strong>它只可以从一个 shared_ptr 或另一个 weak_ptr 对象构造, 它的构造和析构不会引起引用记数的增加或减少</strong>。</p>
+<h4 id="9、智能指针的循环引用"><a href="#9、智能指针的循环引用" class="headerlink" title="9、智能指针的循环引用"></a>9、<strong>智能指针的循环引用</strong></h4><p>循环引用是指使用多个智能指针share_ptr时，出现了指针之间相互指向，从而形成环的情况，有点类似于死锁的情况，这种情况下，智能指针往往不能正常调用对象的析构函数，从而造成内存泄漏。</p>
+<p>在实际编程过程中，应该尽量避免出现智能指针之前相互指向的情况，如果不可避免，可以使用使用弱指针——weak_ptr，它不增加引用计数，只要出了作用域就会自动析构。</p>
+<h4 id="10、智能指针出现循环引用怎么解决？"><a href="#10、智能指针出现循环引用怎么解决？" class="headerlink" title="10、智能指针出现循环引用怎么解决？"></a>10、<strong>智能指针出现循环引用怎么解决？</strong></h4><p>为了解决循环引用导致的内存泄漏，引入了弱指针weak_ptr，weak_ptr的构造函数不会修改引用计数的值，从而不会对对象的内存进行管理，其类似一个普通指针，但是不会指向引用计数的共享内存，但是可以检测到所管理的对象是否已经被释放，从而避免非法访问。</p>
+<h4 id="11、-share-ptr-怎么知道跟它共享对象的指针释放了"><a href="#11、-share-ptr-怎么知道跟它共享对象的指针释放了" class="headerlink" title="11、**share_**ptr 怎么知道跟它共享对象的指针释放了"></a>11、**share_**<strong>ptr</strong> <strong>怎么知道跟它共享对象的指针释放了</strong></h4><p>多个shared_ptr对象可以同时托管一个指针，系统会维护一个托管计数。当无shared_ptr托管该指针时，delete该指针。</p>
+<h4 id="12、手写实现智能指针类需要实现哪些函数？"><a href="#12、手写实现智能指针类需要实现哪些函数？" class="headerlink" title="12、手写实现智能指针类需要实现哪些函数？"></a>12、<strong>手写实现智能指针类需要实现哪些函数？</strong></h4><p>智能指针是一个数据类型，一般用模板实现，模拟指针行为的同时还提供自动垃圾回收机制。它会自动记录SmartPointer&lt;T*&gt;对象的引用计数，一旦T类型对象的引用计数为0，就释放该对象。</p>
+<p>除了指针对象外，我们还需要一个引用计数的指针设定对象的值，并将引用计数计为1，需要一个构造函数。新增对象还需要一个构造函数，析构函数负责引用计数减少和释放内存。</p>
+<p>通过<strong>覆写赋值运算符</strong>，才能将一个旧的智能指针赋值给另一个指针，同时旧的引用计数减1，新的引用计数加1</p>
+<p><strong>一个构造函数、拷贝构造函数、复制构造函数、析构函数、移动函数；</strong></p>
+<h4 id="13、-weak-ptr-能不能知道对象计数为-0，为什么？"><a href="#13、-weak-ptr-能不能知道对象计数为-0，为什么？" class="headerlink" title="13、**weak_**ptr 能不能知道对象计数为 0，为什么？"></a>13、**weak_**<strong>ptr</strong> <strong>能不能知道对象计数为 0，为什么？</strong></h4><p>不能。</p>
+<p>weak_ptr是一种不控制对象生命周期的智能指针，它指向一个shared_ptr管理的对象。进行该对象管理的是那个引用的shared_ptr。weak_ptr只是提供了对管理 对象的一个访问手段。weak_ptr设计的目的只是为了配合shared_ptr而引入的一种智能指针，配合shared_ptr工作，它只可以从一个shared_ptr或者另一个weak_ptr对象构造，<strong>它的构造和析构不会引起计数的增加或减少。</strong></p>
+<h4 id="14、请你回答一下智能指针有没有内存泄露的情况"><a href="#14、请你回答一下智能指针有没有内存泄露的情况" class="headerlink" title="14、请你回答一下智能指针有没有内存泄露的情况"></a>14、<strong>请你回答一下智能指针有没有内存泄露的情况</strong></h4><p><strong>智能指针有内存泄露的情况发生。</strong></p>
+<ol>
+<li><p>智能指针发生内存泄露的情况</p>
+<ul>
+<li>当两个对象同时使用一个shared_ptr成员变量指向对方，会造成循环引用，使引用计数失效，从而导致内存泄露。</li>
+</ul>
+</li>
+<li><p>智能指针的内存泄漏如何解决？</p>
+<ul>
+<li>为了解决循环引用导致的内存泄漏，引入了弱指针weak_ptr，weak_ptr的构造函数不会修改引用计数的值，从而不会对对象的内存进行管理，其类似一个普通指针，但是不会指向引用计数的共享内存，但是可以检测到所管理的对象是否已经被释放，从而避免非法访问。</li>
+</ul>
+</li>
+</ol>
+<h4 id="15、说说你了解的auto-ptr作用"><a href="#15、说说你了解的auto-ptr作用" class="headerlink" title="15、说说你了解的auto_ptr作用"></a>15、<strong>说说你了解的auto_ptr作用</strong></h4><p>auto_ptr的出现，主要是为了解决“<strong>有异常抛出时发生内存泄漏</strong>”的问题；抛出异常，将导致指针p所指向的空间得不到释放而导致内存泄漏；</p>
+<p>auto_ptr的构造函数是explicit，阻止了一般指针隐式转换为 auto_ptr的构造，所以不能直接将一般类型的指针赋值给auto_ptr类型的对象，必须用auto_ptr的构造函数创建对象；</p>
+<p>由于auto_ptr对象析构时会删除它所拥有的指针，所以使用时避免多个auto_ptr对象管理同一个指针；</p>
+<p>auto_ptr内部实现，析构函数中删除对象用的是delete而不是delete[]，所以auto_ptr不能管理数组；</p>
+<p>auto_ptr支持所拥有的指针类型之间的隐式类型转换。</p>
+<p>可以通过*和-&gt;运算符对auto_ptr所有用的指针进行提领操作；</p>
+<p>T* get(),获得auto_ptr所拥有的指针；T* release()，释放auto_ptr的所有权，并将所有用的指针返回。</p>
+<h4 id="16、简述-C-右值引用与转移语义"><a href="#16、简述-C-右值引用与转移语义" class="headerlink" title="16、简述 C++ 右值引用与转移语义"></a>16、<strong>简述 C++ 右值引用与转移语义</strong></h4><ol>
+<li>右值引用</li>
+</ol>
+<p>一般来说，不能取地址的表达式，就是右值引用，能取地址的，就是左值。</p>
+<ol start="2">
+<li>转移语义</li>
+</ol>
+<p>move 本意为 “移动”，但该函数并不能移动任何数据，它的功能很简单，就是将某个左值强制转化为右值。基于 move() 函数特殊的功能，其常用于实现移动语义。</p>
+<h4 id="17、说一下C-左值引用和右值引用"><a href="#17、说一下C-左值引用和右值引用" class="headerlink" title="17、说一下C++左值引用和右值引用"></a>17、<strong>说一下C++左值引用和右值引用</strong></h4><p>C++11正是通过引入右值引用来优化性能，具体来说是通过移动语义来避免无谓拷贝的问题，通过move语义来将临时生成的左值中的资源无代价的转移到另外一个对象中去，通过完美转发来解决不能按照参数实际类型来转发的问题（同时，完美转发获得的一个好处是可以实现移动语义）。</p>
+<p>① 在C++11中所有的值必属于左值、右值两者之一，右值又可以细分为纯右值、将亡值。在C++11中可以取地址的、有名字的就是左值，反之，不能取地址的、没有名字的就是右值（将亡值或纯右值）。</p>
+<p>② C++11对C++98中的右值进行了扩充。在C++11中右值又分为纯右值（prvalue，Pure Rvalue）和将亡值（xvalue，eXpiring Value）。其中<strong>纯右值</strong>的概念等同于我们在C++98标准中右值的概念，<strong>指的是临时变量和不跟对象关联的字面量值</strong>；<strong>将亡值则是C++11新增的跟右值引用相关的表达式</strong>，这样表达式通常是<strong>将要被移动的对象</strong>（移为他用），比如返回右值引用T&amp;&amp;的函数返回值、std::move的返回值，或者转换为T&amp;&amp;的类型转换函数的返回值。</p>
+<p>③ 左值引用就是对一个左值进行引用的类型。右值引用就是对一个右值进行引用的类型，事实上，由于<strong>右值通常不具有名字</strong>，我们也只能通过引用的方式找到它的存在。右值引用和左值引用都是属于引用类型。无论是声明一个左值引用还是右值引用，都必须立即进行初始化。而其原因可以理解为是引用类型本身自己并不拥有所绑定对象的内存，只是该对象的一个别名。左值引用是具名变量值的别名，而右值引用则是不具名（匿名）变量的别名。但常量左值引用是个“万能”的引用类型。它可以接受非常量左值、常量左值、右值对其进行初始化。不过常量左值所引用的右值在它的“余生”中只能是只读的。相对地，非常量左值只能接受非常量左值对其进行初始化。</p>
+<p>④ 右值值引用通常不能绑定到任何的左值，要想绑定一个左值到右值引用，通常需要std::move()将左值强制转换为右值。</p>
+<p><strong>左值和右值</strong></p>
+<p>左值：表示的是可以获取地址的表达式，它能出现在赋值语句的左边，对该表达式进行赋值。但是修饰符const的出现使得可以声明如下的标识符，它可以取得地址，但是没办法对其进行赋值</p>
+<p>右值：表示无法获取地址的对象，有常量值、函数返回值、lambda表达式等。无法获取地址，但不表示其不可改变，当定义了右值的右值引用时就可以更改右值。</p>
+<p><strong>左值引用和右值引用</strong></p>
+<p>左值引用：传统的C++中引用被称为左值引用</p>
+<p>右值引用：C++11中增加了右值引用，右值引用关联到右值时，右值被存储到特定位置，右值引用指向该特定位置，也就是说，右值虽然无法获取地址，但是右值引用是可以获取地址的，该地址表示临时对象的存储位置</p>
+<p>这里主要说一下右值引用的特点：</p>
+<p>特点1：通过右值引用的声明，右值又“重获新生”，其生命周期与右值引用类型变量的生命周期一样长，只要该变量还活着，该右值临时量将会一直存活下去</p>
+<p>特点2：右值引用独立于左值和右值。意思是右值引用类型的变量可能是左值也可能是右值</p>
+<p>特点3：T&amp;&amp; t在发生自动类型推断的时候，它是左值还是右值取决于它的初始化。</p>
+<h4 id="18、简述一下-C-11-中四种类型转换"><a href="#18、简述一下-C-11-中四种类型转换" class="headerlink" title="18、简述一下 C++11 中四种类型转换"></a>18、<strong>简述一下 C++11 中四种类型转换</strong></h4><p>C++中四种类型转换分别为const_cast、static_cast、dynamic_cast、reinterpret_cast。</p>
+<p><strong>1. const_cast</strong></p>
+<p>将const变量转为非const</p>
+<p><strong>2. static_cast</strong></p>
+<p>最常用，可以用于各种隐式转换，比如非const转const，static_cast可以用于类向上转换，但向下转换能成功但是不安全。</p>
+<p><strong>3. dynamic_cast</strong></p>
+<p><strong>只能用于含有虚函数的类转换，用于类向上和向下转换</strong></p>
+<p>向上转换：指子类向基类转换。</p>
+<p>向下转换：指基类向子类转换。</p>
+<p>这两种转换，子类包含父类，当父类转换成子类时可能出现非法内存访问的问题。</p>
+<p><strong>dynamic_cast通过判断变量运行时类型和要转换的类型是否相同来判断是否能够进行向下转换。</strong>dynamic_cast可以做类之间上下转换，转换的时候会进行类型检查，类型相等成功转换，类型不等转换失败。运用RTTI技术，RTTI是”Runtime Type Information”的缩写，意思是运行时类型信息，它提供了运行时确定对象类型的方法。在c++层面主要体现在dynamic_cast和typeid，vs中虚函数表的-1位置存放了指向type_info的指针，对于存在虚函数的类型，dynamic_cast和typeid都会去查询type_info。</p>
+<p><strong>4. reinterpret_cast</strong></p>
+<p><strong>reinterpret_cast可以做任何类型的转换，不过不对转换结果保证，容易出问题。</strong></p>
+<p>注意：为什么不用C的强制转换：C的强制转换表面上看起来功能强大什么都能转，但是转换不够明确，不能进行错误检查，容易出错。</p>
+<h4 id="19、简述一下-C-11-中的可变参数模板新特性"><a href="#19、简述一下-C-11-中的可变参数模板新特性" class="headerlink" title="19、简述一下 C++11 中的可变参数模板新特性"></a>19、<strong>简述一下 C++11 中的可变参数模板新特性</strong></h4><p>可变参数模板(variadic template)使得编程者能够创建可接受可变数量的参数模板类。</p>
+<p>要创建可变参数模板，需要理解几个要点：</p>
+<p>（1）模板参数包（parameter pack）；</p>
+<p>（2）函数参数包；</p>
+<p>（3）展开（unpack）参数包；</p>
+<p>（4）递归。</p>
+<h4 id="20、static-cast比C语言中的转换强在哪里？"><a href="#20、static-cast比C语言中的转换强在哪里？" class="headerlink" title="20、static_cast比C语言中的转换强在哪里？"></a>20、static_cast比C语言中的转换强在哪里？</h4><p>更加安全；</p>
+<p>更直接明显，能够一眼看出是什么类型转换为什么类型，容易找出程序中的错误；可清楚地辨别代码中每个显式的强制转；可读性更好，能体现程序员的意图。</p>
 <p>公众号：写Bug那些事</p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/CltCj?type=blog">我的CSDN</a></p>
 
@@ -690,7 +672,7 @@ Error response from daemon: You cannot remove a running container a9f76eee97ee32
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://cltcj.github.io/2022/09/05/docker-rong-qi-ji-shi-yong/">https://cltcj.github.io/2022/09/05/docker-rong-qi-ji-shi-yong/</a>
+                    <a href="https://cltcj.github.io/2022/09/06/mian-shi-chang-kao-c-11-xin-te-xing/">https://cltcj.github.io/2022/09/06/mian-shi-chang-kao-c-11-xin-te-xing/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -727,7 +709,19 @@ Error response from daemon: You cannot remove a running container a9f76eee97ee32
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/%E9%9D%A2%E8%AF%95%E5%AE%9D%E5%85%B8/">
+                                    <span class="chip bg-color">面试宝典</span>
+                                </a>
+                            
+                                <a href="/tags/C-C/">
+                                    <span class="chip bg-color">C/C++</span>
+                                </a>
+                            
+                                <a href="/tags/STL/">
+                                    <span class="chip bg-color">STL</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -941,9 +935,10 @@ Error response from daemon: You cannot remove a running container a9f76eee97ee32
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2022/09/06/mian-shi-chang-kao-c-11-xin-te-xing/">
                     <div class="card-image">
@@ -961,9 +956,9 @@ Error response from daemon: You cannot remove a running container a9f76eee97ee32
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-09-06
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-09-06
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -980,6 +975,7 @@ Error response from daemon: You cannot remove a running container a9f76eee97ee32
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1006,13 +1002,13 @@ Error response from daemon: You cannot remove a running container a9f76eee97ee32
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/09/04/docker-jie-shao-ji-an-zhuang/">
+                <a href="/2022/09/05/docker-rong-qi-ji-shi-yong/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="Docker介绍及安装">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="Docker容器及使用">
                         
-                        <span class="card-title">Docker介绍及安装</span>
+                        <span class="card-title">Docker容器及使用</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1023,27 +1019,15 @@ Error response from daemon: You cannot remove a running container a9f76eee97ee32
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-09-04
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-09-05
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Docker/" class="post-category">
-                                    Docker
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            无敌最俊朗
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Docker%E7%9F%A5%E8%AF%86/">
-                        <span class="chip bg-color">Docker知识</span>
-                    </a>
-                    
                 </div>
                 
             </div>
